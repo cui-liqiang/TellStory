@@ -81,9 +81,19 @@ li {
   font-size: 18px;
 }
 
-.add-content {
+.new-content, .add-content {
   width: 660px;
   height: 200px;
+  margin: 10px 10px 10px 10px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #D1D1D1 inset;
+  font-size: 20px;
+}
+
+.new-title {
+  width: 660px;
+  height: 25px;
   margin: 10px 10px 10px 10px;
   border: none;
   border-radius: 5px;
@@ -123,7 +133,7 @@ li {
   margin: 0;
 }
 
-.submit-content {
+.submit-new, .submit-content {
   width: 150px;
   height: 40px;
   text-align: center;

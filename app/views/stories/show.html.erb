@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Start You New Story</title>
+    <meta charset="UTF-8">
+    <link href="/css/story.css" rel="stylesheet">
+    <script src="/js/jquery-1.7.min.js" type="text/javascript"></script>
+    <script src="/js/story.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="head">
+    <h1></h1>
+</div>
+<div class="container">
+    <div class="left">
+        <div class="story-content">
+            <h3 class="story-title"><%= @story.title%></h3>
+            <ul>
+                <li>
+                    <%= @story.content %>
+                </li>
+                <% @story.adopted_follows.each do |follows|%>
+                    <li>
+                        <p><%= follows.content%></p>
+                    </li>
+                <% end %>
+            </ul>
+            <div class="social"></div>
+            <textarea class="add-content"></textarea>
+            <br>
+            <a class="submit-content" href="#">提交续写</a>
+        </div>
+
+    </div>
+
+    <div class="right">
+        <div class="story-added">
+            <h3 class="chapter-title">所有本章节续写</h3>
+            <ul>
+                <% @story.current_follows.each do |follows|%>
+                    <li>
+                        <p><%= follows.content%></p>
+                        <div><span>投票</span><span class="vote">1</span></div>
+                    </li>
+                <% end %>
+            </ul>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

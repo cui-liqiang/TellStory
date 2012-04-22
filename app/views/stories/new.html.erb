@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Start You New Story</title>
+    <meta charset="UTF-8">
+    <link href="/css/story.css" rel="stylesheet">
+    <script src="/js/jquery-1.7.min.js" type="text/javascript"></script>
+    <script src="/js/story.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="head">
+    <h1></h1>
+</div>
+<div class="container">
+    <div class="left">
+        <div class="story-content">
+            <%= form_for(@story) do |f| %>
+                <%= f.label "题目"%>
+                <%= f.text_field :title, :class => "new-title"%>
+
+                <%= f.label "内容"%>
+                <%= f.text_area :content, :class => "new-content"%>
+
+                <%= f.submit "提交故事", :class => "submit-new"%>
+            <% end %>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
