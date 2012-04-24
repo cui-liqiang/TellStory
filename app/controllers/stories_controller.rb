@@ -18,4 +18,11 @@ class StoriesController < ApplicationController
 	def show
 		@story = Story.find_by_id(params[:id])
 	end
+
+	def update
+		follow = params[:followContent]
+		story = Story.find_by_id(params[:id])
+		story.follows << Follow.create(:content => follow, :round => story.current_round)
+		render :text => "ok"
+	end
 end

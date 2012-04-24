@@ -4,10 +4,10 @@ class Story < ActiveRecord::Base
   has_many :follows
 
   def adopted_follows
-  	follows.collect {|follow| follow.adopted}
+  	follows.select {|follow| follow.adopted}
   end
 
   def current_follows
-  	follows.collect {|follow| follow.round == current_round}
+  	follows.select {|follow| follow.round == current_round}
   end
 end
