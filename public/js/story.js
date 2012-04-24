@@ -6,16 +6,7 @@ $(document).ready(function() {
             alert("input content");
             return;
         }
-        else {
-            var length = $('.story-added ul li').length;
-            $('.story-added ul').prepend(
-                    "<li>" +
-                    "   <p>" + content +
-                    "   </p>" +
-                    "   <div><span>投票</span><span class='vote'>0</span></div>" +
-                    "</li>");
-            $('.add-content').val("");
-        }
+        saveFollow(content);
     });
 
     $('.vote').live('click', function() {
@@ -23,3 +14,24 @@ $(document).ready(function() {
         $(this).text(Number(current) + 1);
     });
 });
+
+
+function addFollowToCandidate(content) {
+    $('.story-added ul').prepend(
+            "<li>" +
+            "   <p>" + content +
+            "   </p>" +
+            "   <div><span>投票</span><span class='vote'>0</span></div>" +
+            "</li>");
+    $('.add-content').val("");
+}
+
+function saveFollow(content) {
+    $.ajax(window.location.pathname, {
+        type:"put",
+        data:{followContent:content},
+        success: function() {
+            addFollowToCandidate(content);
+        }
+    })
+}
