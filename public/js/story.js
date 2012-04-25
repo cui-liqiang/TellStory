@@ -10,18 +10,32 @@ $(document).ready(function() {
     });
 
     $('.vote').live('click', function() {
-        var current = $(this).text();
-        $(this).text(Number(current) + 1);
+        console.log('ddd')
+        addVote($(this))
     });
 });
 
+function addVote(follow) {
+    var id = follow.find('input').val()
+    $.ajax("/follows/" + id, {
+        type:"put",
+        success:function(data) {
+            follow.find('span').text(Number(data));
+        }
+    })
+}
 
-function addFollowToCandidate(content) {
+function addFollowToCandidate(content, data) {
     $('.story-added ul').prepend(
-            "<li>" +
-            "   <p>" + content +
-            "   </p>" +
-            "   <div><span>投票</span><span class='vote'>0</span></div>" +
+            "<li class='vote_wrap'>" +
+            "   <p>" + content + "</p>" +
+            "   <div>" +
+            "       <span>投票</span>" +
+            "       <span class='vote'>" +
+            "           <input type='hidden' value='" + data + "' />" +
+            "           <span>0</span>" +
+            "       </span>" +
+            "   </div>" +
             "</li>");
     $('.add-content').val("");
 }
@@ -30,8 +44,8 @@ function saveFollow(content) {
     $.ajax(window.location.pathname, {
         type:"put",
         data:{followContent:content},
-        success: function() {
-            addFollowToCandidate(content);
+        success: function(data) {
+            addFollowToCandidate(content, data);
         }
     })
 }
