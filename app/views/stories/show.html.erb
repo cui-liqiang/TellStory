@@ -38,10 +38,14 @@
         <div class="story-added">
             <h3 class="chapter-title">所有本章节续写</h3>
             <ul>
-                <% @story.current_follows.each do |follows|%>
-                    <li>
-                        <p><%= follows.content%></p>
-                        <div><span>投票</span><span class="vote">1</span></div>
+                <% @story.current_follows.each do |follow|%>
+                    <li class="vote_wrap">
+                        <p><%= follow.content%></p>
+                        <div><span>投票</span>
+                        <span class="vote">
+                            <input type="hidden" value="<%= follow.id%>" />
+                            <span><%= follow.votes%></span>
+                        </span></div>
                     </li>
                 <% end %>
             </ul>
