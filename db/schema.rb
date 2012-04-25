@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120422015539) do
+ActiveRecord::Schema.define(:version => 20120425133117) do
 
   create_table "follows", :force => true do |t|
     t.text     "content",                       :null => false
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20120422015539) do
     t.integer  "current_round", :default => 1
     t.datetime "created_at",                   :null => false
     t.datetime "updated_at",                   :null => false
+    t.datetime "round_time"
   end
 
 end
