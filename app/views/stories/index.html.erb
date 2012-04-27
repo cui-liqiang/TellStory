@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Start You New Story</title>
+    <meta charset="UTF-8">
+    <link href="/css/story.css" rel="stylesheet">
+    <script src="/js/jquery-1.7.min.js" type="text/javascript"></script>
+    <script src="/js/story.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="head">
+    <h1></h1>
+</div>
+<div class="container">
+    <div class="left">
+        <div class="story-content">
+            <h3 class="story-title">热门故事</h3>
+            <% @stories.each do |story|%>
+                <div class="story">
+                    <h4><%= story.title%></h4>
+                    <p><%= story.content%></p>
+                    <br>
+                    <a class="view-more" href="stories/<%= story.id%>">查看更多</a>
+                </div>
+            <% end %>
+        </div>
+
+    </div>
+
+    <a class="start-story" href="/stories/new"><h1></h1>发起新故事</h1></a>
+
+    <div class="right">
+        <div class="story-added">
+            <h3 class="chapter-title">作者</h3>
+            <ul>
+                <li>
+                    <p>张三</p>
+                </li>
+                <li>
+                    <p>李四</p>
+                </li>
+                <li>
+                    <p>王五</p>
+                </li>
+                <li>
+                    <p>赵六</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

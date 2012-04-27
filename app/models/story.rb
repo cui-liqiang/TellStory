@@ -1,5 +1,5 @@
 class Story < ActiveRecord::Base
-  attr_accessible :content, :current_round, :title, :round_time
+  attr_accessible :content, :current_round, :title, :round_time, :hot
 
   has_many :follows
 
@@ -28,6 +28,7 @@ class Story < ActiveRecord::Base
   end
 
   private 
+
   def pick_follow
   	max = self.follows.max_by {|follow| follow.votes }
   	max.adopted = true and max.save unless max.nil?

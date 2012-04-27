@@ -4,6 +4,7 @@ class CreateStories < ActiveRecord::Migration
       t.string :title, :null => false
       t.text :content, :null => false
       t.integer :current_round, :default => 1
+      t.integer :hot, :default => 0
 
       t.timestamps
     end
