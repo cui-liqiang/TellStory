@@ -119,6 +119,10 @@ li {
   padding-bottom: 10px;
 }
 
+.story-content {
+  min-height: 200px;
+}
+
 .story-added li div {
   position: absolute;
   bottom: 2px;

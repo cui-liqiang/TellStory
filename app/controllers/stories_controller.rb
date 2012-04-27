@@ -5,6 +5,8 @@ class StoriesController < ApplicationController
 
 	def create
 		@story = Story.new(params[:story])
+		@story.round_time = DateTime.now
+		@story.hot = 0
 
 		respond_to do |format|
       		if @story.save
@@ -19,11 +21,18 @@ class StoriesController < ApplicationController
 		@story = Story.find_by_id(params[:id])
 	end
 
+	def index
+		@stories = Story.limit(10).order('hot desc')
+	end
+
 	def update
 		follow = params[:followContent]
 		story = Story.find_by_id(params[:id])
-		follow = Follow.create(:content => follow, :round => story.current_round)
-		story.follows << follow
+		ActiveRecord::Base.transaction do
+			follow = Follow.create(:content => follow, :round => story.current_round)
+			story.follows << follow
+			story.update_attributes :hot => story.hot + 1
+		end
 		render :text => follow.id
 	end
 end
