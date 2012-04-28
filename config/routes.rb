@@ -1,6 +1,8 @@
 TellStory::Application.routes.draw do
   resources :stories
   resources :follows
+
+  root :to => "stories#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
