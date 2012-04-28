@@ -67,6 +67,7 @@ GEM
     netrc (0.7.1)
     pg (0.13.2)
     polyglot (0.3.3)
+    postgres-pr (0.6.3)
     rack (1.4.1)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -130,6 +131,7 @@ DEPENDENCIES
   heroku
   jquery-rails
   pg
+  postgres-pr
   rails (= 3.2.3)
   sass-rails (~> 3.2.3)
   sqlite3

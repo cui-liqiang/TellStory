@@ -23,6 +23,7 @@ end
 group :production do
   gem 'thin'
   gem 'pg'
+  gem 'postgres-pr'
 end
 
 gem 'jquery-rails'
