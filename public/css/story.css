@@ -6,11 +6,12 @@ body {
 
 .head {
   height: 140px;
-  /*background-color: #44B5AF;*/
+  float: left;
   background: 0 url("../images/logo.png") no-repeat, 250px url("../images/fubiaoti.png") no-repeat;
   background-color: #44B5AF;
   border-radius: 5px;
   box-shadow: 2px 2px 5px gray;
+  width:100%;
 }
 
 .head h1 {
@@ -191,3 +192,18 @@ li {
   background: url("share_icon.gif") no-repeat;
 }
 
+.profile_place_holder {
+  float:right;
+  font-family:Arial;
+  font-size:28px;
+  text-align:center;
+  background-color:;
+}
+
+.login_button {
+  margin:45px 10px 38px 38px;
+}
+
+.greeting {
+  margin:30px;
+}

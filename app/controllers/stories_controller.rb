@@ -1,4 +1,6 @@
 class StoriesController < ApplicationController
+	before_filter :login_validate, :except => [:index]
+
 	def new
 		@story = Story.new
 	end
@@ -22,6 +24,7 @@ class StoriesController < ApplicationController
 	end
 
 	def index
+		redirect_to "/login?code=#{params[:code]}"  unless params[:code].nil?
 		@stories = Story.limit(10).order('hot desc')
 	end
 
@@ -34,5 +37,9 @@ class StoriesController < ApplicationController
 			story.update_attributes :hot => story.hot + 1
 		end
 		render :text => follow.id
+	end
+
+	def login_validate
+		redirect_to "/oauth" unless session[:logged_in]
 	end
 end

@@ -13,7 +13,16 @@
 </head>
 <body>
 <div class="head">
-    <h1></h1>
+	<div class='profile_place_holder'>
+	<% if logged_in%>
+		<div class="greeting">欢迎你<br/>
+		<%= user_name%></div>
+	<% else %>
+		<a href="/oauth">
+			<%= image_tag("/images/Connect_logo.png", :class => "login_button", :path => "fdfdf")%>
+		</a>
+	<% end %>
+</div>
 </div>
 <%= yield %>
 
