@@ -2,6 +2,9 @@ TellStory::Application.routes.draw do
   resources :stories
   resources :follows
 
+  match "/login" => "session#create"
+  match "/oauth" => "session#new"
+
   root :to => "stories#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
