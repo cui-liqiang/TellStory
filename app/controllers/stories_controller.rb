@@ -1,3 +1,4 @@
+# encoding: utf-8
 class StoriesController < ApplicationController
 	before_filter :login_validate, :except => [:index]
 
@@ -13,10 +14,25 @@ class StoriesController < ApplicationController
 		respond_to do |format|
       		if @story.save
         		format.html { redirect_to(@story, :notice => 'Story was successfully created.') }
+        		post_weibo @story
       		else
         		format.html { render :action => "new" }
       		end
     	end
+	end
+
+	def post_weibo story
+		response = HTTParty.post("https://graph.qq.com/t/add_t", 
+			:body => "access_token=#{session[:access]}&oauth_consumer_key=#{app_id}&openid=#{session[:open_id]}&format=json&content=" +
+			post_content(story),
+			:headers => {
+				"Content-Type" => "application/x-www-form-urlencoded"
+				})
+	end
+
+	def post_content story
+		random = (rand * 10000).to_s[0..3]
+		"#{random}我在转角童话上面参与了一篇故事“#{story.title}”，大家去看看，续写一下吧~ http://stormy-day-2454.herokuapp.com/stories/#{story.id}"
 	end
 
 	def show
@@ -36,6 +52,7 @@ class StoriesController < ApplicationController
 			story.follows << follow
 			story.update_attributes :hot => story.hot + 1
 		end
+		post_weibo story
 		render :text => follow.id
 	end
 

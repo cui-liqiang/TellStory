@@ -41,9 +41,11 @@ function addFollowToCandidate(content, data) {
 }
 
 function saveFollow(content) {
+    tokentag = $('#tokentag').val()
+
     $.ajax(window.location.pathname, {
         type:"put",
-        data:{followContent:content},
+        data:{followContent:content, authenticity_token: tokentag},
         success: function(data) {
             addFollowToCandidate(content, data);
         }
