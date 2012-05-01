@@ -4,6 +4,6 @@ module ApplicationHelper
 	end
 
 	def user_name
-		session[:user]["data"]["nick"]	
+		session[:user].display_name
 	end	
 end
