@@ -58,7 +58,6 @@ class StoriesController < ApplicationController
 		"#{random}我在转角童话上面参与了一篇故事“#{story.title}”，大家去看看，续写一下吧~ http://stormy-day-2454.herokuapp.com/stories/#{story.id}"
 	end
 
-
 	def login_validate
 		redirect_to "/oauth" unless session[:logged_in]
 	end

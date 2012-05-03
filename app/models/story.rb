@@ -1,7 +1,11 @@
 class Story < ActiveRecord::Base
   attr_accessible :content, :current_round, :title, :round_time, :hot
 
+<<<<<<< HEAD
   has_many :follows, :order => "round ASC"
+=======
+  has_many :follows
+>>>>>>> 1b5745fc52871d87cfd815a5aa610173c6c3fb14
 
   def adopted_follows
   	follows.select {|follow| follow.adopted}
