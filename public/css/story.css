@@ -185,6 +185,7 @@ li {
 
 img.head_logo {
   margin-top: 22px;
+  float:left;
 }
 
 .view-more {
