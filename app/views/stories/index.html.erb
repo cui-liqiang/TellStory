@@ -4,8 +4,11 @@
             <h3 class="story-title">热门故事</h3>
             <% @stories.each do |story|%>
                 <div class="story">
-                    <h4><%= story.title%></h4>
-                    <p><%= story.content%></p>
+                    <img class='head_logo' src='<%= story.user.head %>/50'></img>
+                    <div class='index-story-content'>
+                        <h4><%= story.title %></h4> 
+                        <p><%= story.content%></p>
+                    </div>
                     <br>
                     <a class="view-more" href="stories/<%= story.id%>">查看更多</a>
                 </div>

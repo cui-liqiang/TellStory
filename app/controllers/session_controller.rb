@@ -31,6 +31,7 @@ class SessionController < ApplicationController
 		user_info = JSON.parse(response.body)
 		user = User.find_or_create_by_name(user_info["data"]["name"])
 		user.display_name = user_info["data"]["nick"]
+		user.head = user_info['data']['head']
 		user.save
 		session[:user] = user
 	end

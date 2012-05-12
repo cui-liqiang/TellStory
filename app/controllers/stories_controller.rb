@@ -10,6 +10,7 @@ class StoriesController < ApplicationController
 		@story = Story.new(params[:story])
 		@story.round_time = DateTime.now
 		@story.hot = 0
+		@story.user = current_user
 
 		respond_to do |format|
       		if @story.save
@@ -35,6 +36,7 @@ class StoriesController < ApplicationController
 		story = Story.find_by_id(params[:id])
 		ActiveRecord::Base.transaction do
 			follow = Follow.create(:content => follow, :round => story.current_round)
+			follow.user = current_user
 			story.follows << follow
 			story.update_attributes :hot => story.hot + 1
 		end

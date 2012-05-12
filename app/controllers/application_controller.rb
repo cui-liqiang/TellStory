@@ -12,4 +12,8 @@ class ApplicationController < ActionController::Base
 	def app_id
 		"100266968"
 	end
+
+	def current_user
+		session[:user]
+	end
 end

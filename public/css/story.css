@@ -46,6 +46,11 @@ body {
   font-size: 30px;
 }
 
+.index-story-content {
+  float: right;
+  width:550px;
+}
+
 ul {
   margin-top: 30px;
 }
@@ -175,6 +180,11 @@ li {
   margin-right: 10px;
   margin-left: 10px;
   padding-left: 10px;
+  min-height: 150px;
+}
+
+img.head_logo {
+  margin-top: 22px;
 }
 
 .view-more {
@@ -206,4 +216,8 @@ li {
 
 .greeting {
   margin:30px;
+}
+
+.user_name {
+
 }
