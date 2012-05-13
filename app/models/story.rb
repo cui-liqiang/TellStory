@@ -31,7 +31,7 @@ class Story < ActiveRecord::Base
   private 
 
   def pick_follow
-  	max = self.follows.max_by {|follow| follow.votes }
+  	max = self.follows.max_by {|follow| follow.votes.size }
   	max.adopted = true and max.save unless max.nil?
   end
 end

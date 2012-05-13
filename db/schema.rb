@@ -11,14 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120513140838) do
+ActiveRecord::Schema.define(:version => 20120513144921) do
 
   create_table "follows", :force => true do |t|
     t.text     "content",                       :null => false
     t.integer  "story_id"
     t.integer  "round"
     t.boolean  "adopted",    :default => false
-    t.integer  "votes",      :default => 0
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
     t.integer  "user_id"
