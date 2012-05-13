@@ -3,4 +3,6 @@ class User < ActiveRecord::Base
 
   has_many :stories
   has_many :follows
+  has_many :votes
+  has_many :follows, :through => :votes
 end

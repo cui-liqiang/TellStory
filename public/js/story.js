@@ -17,10 +17,15 @@ $(document).ready(function() {
 
 function addVote(follow) {
     var id = follow.find('input').val()
+    tokentag = $('#tokentag').val()
     $.ajax("/follows/" + id, {
         type:"put",
+        data:{authenticity_token: tokentag},
         success:function(data) {
             follow.find('span').text(Number(data));
+        },
+        error:function(data) {
+            alert(data.responseText)
         }
     })
 }
