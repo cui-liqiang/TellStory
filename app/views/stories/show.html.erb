@@ -1,7 +1,10 @@
 <div class="container">
     <div class="left">
         <div class="story-content">
-            <h3 class="story-title"><%= @story.title%></h3>
+            <h3 class="story-title">
+                <img class='head_logo_show' src='<%= @story.user.head %>/50'></img>
+                <%= @story.title%>
+            </h3>
             <ul class='story_and_follow'>
                 <li>
                     <%= @story.content %>
@@ -27,7 +30,10 @@
             <ul class='story_and_follow'>
                 <% @story.current_follows.each do |follow|%>
                     <li class="vote_wrap">
-                        <p><%= follow.content%></p>
+                        <p>
+                            <img class='head_logo_show_follow' src='<%= @story.user.head %>/50'></img>
+                            <%= follow.content%>
+                        </p>
                         <div><span>投票</span>
                         <span class="vote">
                             <input type="hidden" value="<%= follow.id%>" />
