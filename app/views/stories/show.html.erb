@@ -2,7 +2,7 @@
     <div class="left">
         <div class="story-content">
             <h3 class="story-title"><%= @story.title%></h3>
-            <ul>
+            <ul class='story_and_follow'>
                 <li>
                     <%= @story.content %>
                 </li>
@@ -24,7 +24,7 @@
     <div class="right">
         <div class="story-added">
             <h3 class="chapter-title">所有本章节续写</h3>
-            <ul>
+            <ul class='story_and_follow'>
                 <% @story.current_follows.each do |follow|%>
                     <li class="vote_wrap">
                         <p><%= follow.content%></p>

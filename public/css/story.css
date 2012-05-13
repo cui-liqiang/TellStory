@@ -46,15 +46,6 @@ body {
   font-size: 30px;
 }
 
-.index-story-content {
-  float: right;
-  width:550px;
-}
-
-ul {
-  margin-top: 30px;
-}
-
 p {
   padding: 5px 0 5px 0;
 }
@@ -176,7 +167,6 @@ li {
 .story {
   position: relative;
   box-shadow: 0 3px 3px gray;
-  background-color: #A6CFD3;
   margin-right: 10px;
   margin-left: 10px;
   padding-left: 10px;
