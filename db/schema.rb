@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120513144921) do
+ActiveRecord::Schema.define(:version => 20120520073534) do
+
+  create_table "comments", :force => true do |t|
+    t.text     "content"
+    t.integer  "follow_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "follows", :force => true do |t|
     t.text     "content",                       :null => false

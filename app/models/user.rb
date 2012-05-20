@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
   has_many :follows
   has_many :votes
   has_many :follows, :through => :votes
+  has_many :comments
 end

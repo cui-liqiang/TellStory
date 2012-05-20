@@ -1,0 +1,43 @@
+.follow_comment_index {
+	height: 300px;
+	width: 460px;
+	overflow: auto;
+}
+
+.submit-follow-comment-wrapper {
+}
+
+.follow_comment_textbox {
+    width: 390px;
+    height: 100px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #D1D1D1 inset;
+    font-size: 20px;
+    margin-left:53px;
+    float:left;
+}
+
+.comment {
+	height:auto;
+	width: 390px;
+	background-color: #DEDCDD;
+	float: left;
+	overflow: auto;
+}
+
+.user_head {
+	float:left;
+	margin-right:5px;
+}
+
+.clearfix:after {
+	clear: both;
+	content: "";
+	display: block;
+	visibility: hidden;
+	height: 0;
+}
+
+.comment-container {
+	margin-bottom:10px;
+}

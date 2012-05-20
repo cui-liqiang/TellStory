@@ -1,0 +1,13 @@
+<link href="/assets/application.css" rel="stylesheet">
+<div class="follow_comment_index">
+	<% @follow.comments.each do |comment|%>
+		<div class="clearfix comment-container">
+			<div class="user_head"><img src="<%= comment.user.head %>/50"></div>
+			<div class="comment"><%= comment.content %></div>
+		</div>
+	<% end %>
+	<%= form_for([@follow, @comment]) do |f| %>
+		<div><%= f.text_area "content", :class => "follow_comment_textbox" %></div>
+		<div class="submit-follow-comment-wrapper"><%= f.submit "提交", :class => "submit-new submit-follow-comment" %></div>
+	<% end %>
+</div>

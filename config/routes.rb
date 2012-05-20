@@ -1,6 +1,8 @@
 TellStory::Application.routes.draw do
   resources :stories
-  resources :follows
+  resources :follows do
+    resources :comments
+  end
 
   match "/login" => "session#create"
   match "/oauth" => "session#new"
