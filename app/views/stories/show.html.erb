@@ -34,7 +34,7 @@
                             <%= follow.content%>
                         </p>
                         <div>
-                            <a href="#" onclick="showCommentsBox()">评论</a>
+                            <a href="#" onclick="showCommentsBox(<%= follow.id %>)">评论</a>
                             <span>投票</span>
                             <span class="vote">
                             <input type="hidden" value="<%= follow.id%>" />

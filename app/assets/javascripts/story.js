@@ -56,3 +56,13 @@ function saveFollow(content) {
         }
     })
 }
+
+function showCommentsBox(follow_id) {
+    $.ajax("/follows/40/comments", {
+        success: function(html) {
+            $('body').append("<div class='for_popup'></div>");
+            $('.for_popup').dialog({ modal: true });
+            $('.for_popup').append(html);
+        }
+    })
+}
