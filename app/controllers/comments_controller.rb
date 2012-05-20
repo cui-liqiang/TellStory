@@ -1,10 +1,12 @@
 class CommentsController < ApplicationController
 	before_filter :get_follow
 	def create
-		comment = Comment.create(params[:comment])
-		comment.user = current_user
-		@follow.comments << comment
-		render :text => "ok"
+		ActiveRecord::Base.transaction do
+			@comment = Comment.create(params[:comment])
+			@comment.user = current_user
+			@follow.comments << @comment
+			render "comments/one_comment", :layout => false
+		end
 	end
 
 	def index

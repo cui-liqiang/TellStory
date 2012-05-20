@@ -1,13 +1,25 @@
 <link href="/assets/application.css" rel="stylesheet">
+<script src="/assets/application.js"></script>
 <div class="follow_comment_index">
-	<% @follow.comments.each do |comment|%>
-		<div class="clearfix comment-container">
-			<div class="user_head"><img src="<%= comment.user.head %>/50"></div>
-			<div class="comment"><%= comment.content %></div>
-		</div>
-	<% end %>
-	<%= form_for([@follow, @comment]) do |f| %>
-		<div><%= f.text_area "content", :class => "follow_comment_textbox" %></div>
-		<div class="submit-follow-comment-wrapper"><%= f.submit "提交", :class => "submit-new submit-follow-comment" %></div>
-	<% end %>
+	<div class="comments">
+		<% if @follow.comments.size == 0 %>
+			<p class="no_comments">还没有人评论过，赶快来做第一个吧</p>
+		<% else %>
+			<% @follow.comments.each do |comment|%>
+				<div class="clearfix comment-container">
+					<div class="user_head"><img src="<%= comment.user.head %>/50"></div>
+					<div class="comment"><%= comment.content %></div>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
+	<div class="new_comment">
+		<%= form_for([@follow, @comment]) do |f| %>
+			<div><%= f.text_area "content", :class => "follow_comment_textbox" %></div>
+			<input id="follow_id" type="hidden" value="<%= @follow.id %>" />
+			<div class="submit-follow-comment-wrapper">
+				<%= f.submit "提交", :class => "submit-new submit-follow-comment" %>
+			</div>
+		<% end %>
+	</div>
 </div>
