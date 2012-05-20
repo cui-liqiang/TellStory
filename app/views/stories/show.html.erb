@@ -31,7 +31,7 @@
                 <% @story.current_follows.each do |follow|%>
                     <li class="vote_wrap">
                         <p>
-                            <img class='head_logo_show_follow' src='<%= @story.user.head %>/50'></img>
+                            <img class='head_logo_show_follow' src='<%= follow.user.head %>/50'></img>
                             <%= follow.content%>
                         </p>
                         <div><span>投票</span>
