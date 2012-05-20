@@ -15,6 +15,7 @@
 </head>
 <body>
 <div class="head">
+
 	<div class='profile_place_holder'>
 	<% if logged_in%>
 		<div class="greeting">欢迎你<br/>
@@ -26,6 +27,7 @@
 	<% end %>
 </div>
 </div>
+<%= render 'layouts/navigation'%>
 <%= yield %>
 
 </body>
