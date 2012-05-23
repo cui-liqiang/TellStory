@@ -1,0 +1,5 @@
+%link{:href => "/assets/application.css", :rel => "stylesheet"}
+  .clearfix.comment-container
+    .user_head
+      %img{:src => "#{@comment.user.head}/50"}/
+    .comment= @comment.content

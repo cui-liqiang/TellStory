@@ -1,0 +1,9 @@
+.container
+  .left
+    .story-content
+      = form_for(@story) do |f|
+        = f.label "题目"
+        = f.text_field :title, :class => "new-title"
+        = f.label "内容"
+        = f.text_area :content, :class => "new-content"
+        = f.submit "提交故事", :class => "submit-new"

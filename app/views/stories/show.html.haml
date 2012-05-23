@@ -1,0 +1,31 @@
+.container
+  .left
+    .story-content
+      %h3.story-title
+        %img.head_logo_show{:src => "#{@story.user.head}/50"}
+        = @story.title
+      %ul.story_and_follow
+        %li
+          = @story.content
+        - @story.adopted_follows.each do |follows|
+          %li
+            %p= follows.content
+      .social
+      = form_for([@story, @story.follows.build], :remote => true, :disable_with => "submitting...") do |f|
+        = f.text_area 'content', :class => 'add-content'
+        = f.submit '提交续写', :class => 'submit-content'
+  .right
+    .story-added
+      %h3.chapter-title 所有本章节续写
+      %ul.story_and_follow
+        - @story.current_follows.each do |follow|
+          %li.vote_wrap
+            %p
+              %img.head_logo_show_follow{:src => "#{follow.user.head}/50"}
+              = follow.content
+            %div
+              %a{:href => "#", :onclick => "showCommentsBox(#{follow.id})"} 评论
+              %span 投票
+              %span.vote
+                %input{:type => "hidden", :value => follow.id}/
+                %span= follow.votes.size
