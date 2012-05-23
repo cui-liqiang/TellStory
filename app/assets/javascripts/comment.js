@@ -5,12 +5,11 @@ $(document).ready(function() {
 			alert("先说点什么再提交吧")
 			return false;
 		}
-	})
-
-	$('#new_comment').bind('ajax:success', function(evt, data, status, xhr) {
+	}).bind('ajax:success', function(evt, data, status, xhr) {
 		if($('p.no_comments').length > 0) {
 			$('p.no_comments').remove();
 		}
 		$('.comments').append(data)
 	})
 })
+

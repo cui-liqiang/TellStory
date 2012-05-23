@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
 	end
 
 	def index
-		@comment = Comment.new
+		@story = Story.find(params[:story_id])
 		render :layout => false
 	end
 

@@ -1,12 +1,23 @@
 $(document).ready(function() {
-    $('.submit-content').bind('click', function(event) {
-        event.preventDefault();
-        var content = $('.add-content').val();
-        if (content == "") {
+    $('#new_follow').bind('ajax:beforeSend', function(evt, data, status, xhr) {
+        if ($('.add-content').val() == "") {
             alert("input content");
-            return;
+            return false;
         }
-        saveFollow(content);
+    }).bind('ajax:success', function(evt, data, status, xhr) {
+        content = $('.add-content').val()
+        $('.story-added ul').prepend(
+            "<li class='vote_wrap'>" +
+            "   <p>" + content + "</p>" +
+            "   <div>" +
+            "       <span>投票</span>" +
+            "       <span class='vote'>" +
+            "           <input type='hidden' value='" + data + "' />" +
+            "           <span>0</span>" +
+            "       </span>" +
+            "   </div>" +
+            "</li>");
+        $('.add-content').val("");
     });
 
     $('.vote').live('click', function() {
@@ -26,33 +37,6 @@ function addVote(follow) {
         },
         error:function(data) {
             alert(data.responseText)
-        }
-    })
-}
-
-function addFollowToCandidate(content, data) {
-    $('.story-added ul').prepend(
-            "<li class='vote_wrap'>" +
-            "   <p>" + content + "</p>" +
-            "   <div>" +
-            "       <span>投票</span>" +
-            "       <span class='vote'>" +
-            "           <input type='hidden' value='" + data + "' />" +
-            "           <span>0</span>" +
-            "       </span>" +
-            "   </div>" +
-            "</li>");
-    $('.add-content').val("");
-}
-
-function saveFollow(content) {
-    tokentag = $('#tokentag').val()
-
-    $.ajax(window.location.pathname, {
-        type:"put",
-        data:{followContent:content, authenticity_token: tokentag},
-        success: function(data) {
-            addFollowToCandidate(content, data);
         }
     })
 }

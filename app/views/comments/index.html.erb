@@ -14,7 +14,7 @@
 		<% end %>
 	</div>
 	<div class="new_comment">
-		<%= form_for([@follow, @comment], :remote => true) do |f| %>
+		<%= form_for([@story, @follow, @follow.comments.build], :remote => true) do |f| %>
 			<div><%= f.text_area "content", :class => "follow_comment_textbox" %></div>
 			<input id="follow_id" type="hidden" value="<%= @follow.id %>" />
 			<div class="submit-follow-comment-wrapper">

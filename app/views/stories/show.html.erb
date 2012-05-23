@@ -16,9 +16,10 @@
                 <% end %>
             </ul>
             <div class="social"></div>
-            <textarea class="add-content" name="follow"></textarea>
-            <br>
-            <a class="submit-content" href="#">提交续写</a>
+            <%= form_for([@story, @story.follows.build], :remote => true, :disable_with => "submitting...") do |f| %>
+                <%= f.text_area 'content', :class => 'add-content' %>
+                <%= f.submit '提交续写', :class => 'submit-content' %>
+            <% end %>
         </div>
 
     </div>
