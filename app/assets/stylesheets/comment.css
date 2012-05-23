@@ -1,7 +1,10 @@
 .follow_comment_index {
-	height: 300px;
+	border-style:solid;
+	border-width:5px;
+	height: 600px;
 	width: 460px;
 	overflow: auto;
+	background-color:white;
 }
 
 .submit-follow-comment-wrapper {

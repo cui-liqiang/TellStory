@@ -24,8 +24,7 @@
               %img.head_logo_show_follow{:src => "#{follow.user.head}/50"}
               = follow.content
             %div
-              %a{:href => "#", :onclick => "showCommentsBox(#{follow.id})"} 评论
+              %a{:href => "#", :onclick => "showCommentsBox(#{@story.id}, #{follow.id})"} 评论
               %span 投票
               %span.vote
-                %input{:type => "hidden", :value => follow.id}/
                 %span= follow.votes.size

@@ -1,18 +1,17 @@
-%link{:href => "/assets/application.css", :rel => "stylesheet"}
-  %script{:src => "/assets/application.js"}
-  .follow_comment_index
-    .comments
-      - if @follow.comments.size == 0
-        %p.no_comments 还没有人评论过，赶快来做第一个吧
-      - else
-        - @follow.comments.each do |comment|
-          .clearfix.comment-container
-            .user_head
-              %img{:src => "#{comment.user.head}/50"}/
-            .comment= comment.content
-    .new_comment
-      = form_for([@story, @follow, @follow.comments.build], :remote => true) do |f|
-        %div= f.text_area "content", :class => "follow_comment_textbox"
-        %input#follow_id{:type => "hidden", :value => @follow.id}/
-        .submit-follow-comment-wrapper
-          = f.submit "提交", :class => "submit-new submit-follow-comment"
+%script{:src => "/assets/comment.js"}
+.follow_comment_index
+  .comments
+    - if @follow.comments.size == 0
+      %p.no_comments 还没有人评论过，赶快来做第一个吧
+    - else
+      - @follow.comments.each do |comment|
+        .clearfix.comment-container
+          .user_head
+            %img{:src => "#{comment.user.head}/50"}/
+          .comment= comment.content
+  .new_comment
+    = form_for([@story, @follow, @follow.comments.build], :remote => true) do |f|
+      %div= f.text_area "content", :class => "follow_comment_textbox"
+      %input#follow_id{:type => "hidden", :value => @follow.id}/
+      .submit-follow-comment-wrapper
+        = f.submit "提交", :class => "submit-new submit-follow-comment"

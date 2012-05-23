@@ -209,6 +209,7 @@ img.head_logo {
   margin:30px;
 }
 
-.user_name {
-
+.for_popup {
+  position: absolute;
+  top:50px;
 }

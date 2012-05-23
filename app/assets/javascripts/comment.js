@@ -9,7 +9,8 @@ $(document).ready(function() {
 		if($('p.no_comments').length > 0) {
 			$('p.no_comments').remove();
 		}
-		$('.comments').append(data)
+		$('.comments').append(data);
+		$(".follow_comment_textbox").val("")
 	})
 })
 

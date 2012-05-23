@@ -41,12 +41,21 @@ function addVote(follow) {
     })
 }
 
-function showCommentsBox(follow_id) {
-    $.ajax("/follows/40/comments", {
+function showCommentsBox(story_id, follow_id) {
+    $.ajax("/stories/" + story_id + "/follows/" + follow_id + "/comments", {
         success: function(html) {
             $('body').append("<div class='for_popup'></div>");
-            $('.for_popup').dialog({ modal: true });
             $('.for_popup').append(html);
+            $('.for_popup').dialog({ 
+                modal: true, 
+                draggable: true, 
+                resizable: true, 
+                title: '该续写的评论',
+                close: function(event, ui) {
+                    $('.for_popup').remove();
+                }
+            });
+            $('.ui-widget-overlay').attr('style', 'height: 700px; position:absolute;top:0');
         }
     })
 }
