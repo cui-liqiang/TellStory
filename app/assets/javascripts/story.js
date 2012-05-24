@@ -6,17 +6,7 @@ $(document).ready(function() {
         }
     }).bind('ajax:success', function(evt, data, status, xhr) {
         content = $('.add-content').val()
-        $('.story-added ul').prepend(
-            "<li class='vote_wrap'>" +
-            "   <p>" + content + "</p>" +
-            "   <div>" +
-            "       <span>投票</span>" +
-            "       <span class='vote'>" +
-            "           <input type='hidden' value='" + data + "' />" +
-            "           <span>0</span>" +
-            "       </span>" +
-            "   </div>" +
-            "</li>");
+        $('.story-added ul').prepend(data);
         $('.add-content').val("");
     });
 
