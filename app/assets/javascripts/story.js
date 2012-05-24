@@ -20,20 +20,15 @@ $(document).ready(function() {
         $('.add-content').val("");
     });
 
-    $('.vote').live('click', function() {
-        console.log('ddd')
-        addVote($(this))
-    });
 });
 
-function addVote(follow) {
-    var id = follow.find('input').val()
+function addVote(story_id, follow_id) {
     tokentag = $('#tokentag').val()
-    $.ajax("/follows/" + id, {
+    $.ajax("/stories/" + story_id + "/follows/" + follow_id, {
         type:"put",
         data:{authenticity_token: tokentag},
         success:function(data) {
-            follow.find('span').text(Number(data));
+            $('#vote_for_follow_' + follow_id).find('span').text(Number(data));
         },
         error:function(data) {
             alert(data.responseText)
