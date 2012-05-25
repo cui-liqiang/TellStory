@@ -1,215 +1,198 @@
 body {
-  margin: 5px 100px 0 100px;
-  font-family: "微软雅黑", Times, serif;
-  background-image: url("../images/background.png");
+    font-family: Arial,Helvetica,sans-serif;
+    background-color: #F9E9C4;
+    background: url("/assets/bg.png");
+    margin: 0;
+}
+
+.content {
+    margin: 0 auto;
+    width: 960px;
 }
 
 .head {
-  height: 140px;
-  float: left;
-  background: 0 url("../images/logo.png") no-repeat, 250px url("../images/fubiaoti.png") no-repeat;
-  background-color: #44B5AF;
-  border-radius: 5px;
-  box-shadow: 2px 2px 5px gray;
-  width:100%;
+    height: 100px;
+    background: 250px url("../images/fubiaoti.png") no-repeat;
+    background-color: #DED8D6;
+    width: 100%;
+    margin-top: 0;
 }
 
-.head h1 {
-  padding: 25px 0 30px 20px;
-  color: white;
+.logo {
+    line-height: 140px;
+    margin-top: 20px;
 }
 
-.container {
-  margin-top: 20px;
-  position: relative;
-  border-radius: 5px;
-  background-color: white;
+.back-to-home {
+    height: 140px;
+    width: 100px;
+    line-height: 140px;
+}
+
+.main-content {
+    height: 100%;
+    margin-top: 20px;
 }
 
 .left {
-  float: left;
-  width: 64%;
-  border-radius: 5px;
-  background-color: #F6F4E7;
-  box-shadow: 2px 2px 5px gray;
-  margin-bottom: 20px;
-  padding-bottom: 10px;
+    float: left;
+    width: 64%;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-right: 1px dotted #D37C47;
 }
 
 .story-title {
-  background-color: #02AfBD;
-  color: white;
-  box-shadow: 0 3px 3px gray;
-  padding: 20px 0 20px 20px;
-  margin: 0;
-  border-radius: 5px;
-  font-size: 30px;
+    color: #64A7DE;
+    padding: 20px 0 20px 20px;
+    margin: 0;
+    font-size: 30px;
+    border-bottom: 1px dotted #D37C47;
 }
 
 p {
-  padding: 5px 0 5px 0;
+    padding: 5px 0 5px 0;
 }
 
 .vote {
-  cursor: pointer;
-  padding-left: 10px;
-}
-
-.story-content ul li {
-  list-style: none;
-  background-color: #81CEAD;
-  padding: 0 20px 0 20px;
-  color: #000000;
-  margin-right: 20px;
-  margin-left: -20px;
-  box-shadow: 0px 3px 3px gray;
+    cursor: pointer;
+    padding-left: 10px;
 }
 
 .right {
-  float: right;
-  width: 35%;
-  background-color: #F6F4E7;
-  border-radius: 5px;
-  box-shadow: 2px 2px 5px gray;
-  overflow: auto;
+    float: right;
+    width: 35%;
+    overflow: auto;
 }
 
 li {
-  font-size: 18px;
+    font-size: 18px;
 }
 
 .new-content, .add-content {
-  width: 660px;
-  height: 200px;
-  margin: 10px 10px 10px 10px;
-  border: none;
-  border-radius: 5px;
-  box-shadow: 0 0 10px #D1D1D1 inset;
-  font-size: 20px;
+    width: 660px;
+    height: 200px;
+    margin: 10px 10px 10px 10px;
+    border: none;
+    font-size: 20px;
 }
 
 .new-title {
-  width: 660px;
-  height: 25px;
-  margin: 10px 10px 10px 10px;
-  border: none;
-  border-radius: 5px;
-  box-shadow: 0 0 10px #D1D1D1 inset;
-  font-size: 20px;
+    width: 660px;
+    height: 25px;
+    margin: 10px 10px 10px 10px;
+    border: none;
+    font-size: 20px;
 }
 
 .story-added li {
-  list-style: none;
-  background-color: #BCC1C5;
-  color: white;
-  border-radius: 3px;
-  padding: 0 20px 0 20px;
-  margin-top: 10px;
-  box-shadow: 0 3px 3px gray;
-  margin-left: -40px;
-  position: relative;
+    list-style: none;
+    background-color: #BCC1C5;
+    color: white;
+    padding: 0 20px 0 20px;
+    margin-top: 10px;
+    margin-left: -40px;
+    position: relative;
 }
 
 .story-content ul {
-  background-color: #DEDCDD;
-  padding-top: 10px;
-  padding-bottom: 10px;
+    background-color: #DEDCDD;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .story-content {
-  min-height: 200px;
+    min-height: 200px;
 }
 
 .story-added li div {
-  position: absolute;
-  bottom: 2px;
-  right: 10px;
-}
-
-.chapter-title {
-  background: #F79651;
-  color: white;
-  box-shadow: 0 3px 3px gray;
-  padding-left: 20px;
-  margin: 0;
+    position: absolute;
+    bottom: 2px;
+    right: 10px;
 }
 
 .submit-new, .submit-content {
-  width: 150px;
-  height: 40px;
-  text-align: center;
-  padding-top: 10px;
-  background-color: #972D03;
-  border-radius: 5px;
-  color: white;
-  float: right;
-  margin-right: 10px;
-  font-size: 18px;
-  text-decoration: none;
+    width: 150px;
+    height: 40px;
+    text-align: center;
+    padding-top: 10px;
+    background-color: #972D03;
+    color: white;
+    float: right;
+    margin-right: 10px;
+    font-size: 18px;
+    text-decoration: none;
 }
 
 .start-story {
-  width: 200px;
-  height: 100px;
-  margin-bottom: 20px;
-  background-color: #B4C720;
-  border-radius: 5px;
-  color: white;
-  float: right;
-  font-size: 25px;
-  margin-right: 50px;
-  margin-top: 30px;
-  padding-left: 70px;
-  text-decoration: none;
-  box-shadow: 3px 3px 3px gray;
+    width: 200px;
+    height: 100px;
+    margin-bottom: 20px;
+    background-color: #B4C720;
+    color: white;
+    float: right;
+    font-size: 25px;
+    margin-right: 50px;
+    margin-top: 30px;
+    padding-left: 70px;
+    text-decoration: none;
 }
 
 .story {
-  position: relative;
-  box-shadow: 0 3px 3px gray;
-  margin-right: 10px;
-  margin-left: 10px;
-  padding-left: 10px;
-  min-height: 150px;
+    position: relative;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding-left: 10px;
+    min-height: 150px;
 }
 
 img.head_logo {
-  margin-top: 22px;
-  float:left;
+    margin-top: 22px;
+    float: left;
 }
 
 .view-more {
-  position: absolute;
-  bottom: 2px;
-  right: 5px;
-  text-decoration: none;
-  margin-top: 30px;
+    position: absolute;
+    bottom: 2px;
+    right: 5px;
+    text-decoration: none;
+    margin-top: 30px;
 }
 
 .social {
-  height: 50px;
-  margin-left: 390px;
+    height: 50px;
+    margin-left: 390px;
 
-  background: url("share_icon.gif") no-repeat;
+    background: url("share_icon.gif") no-repeat;
 }
 
 .profile_place_holder {
-  float:right;
-  font-family:Arial;
-  font-size:28px;
-  text-align:center;
-  background-color:;
+    float: right;
+    font-family: Arial;
+    font-size: 28px;
+    text-align: center;
 }
 
 .login_button {
-  margin:45px 10px 38px 38px;
+    margin: 45px 10px 38px 38px;
 }
 
 .greeting {
-  margin:30px;
+    margin: 30px;
+    font-size: 16px;
 }
 
 .for_popup {
-  position: absolute;
-  top:50px;
+    position: absolute;
+    top: 50px;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
 }

@@ -8,15 +8,18 @@
     %meta{:charset => "UTF-8"}
     %meta{:content => "205023664725154115245460527351006375", :property => "qc:admins"}/
   %body
-    .head
-      .profile_place_holder
-        - if logged_in
-          .greeting
-            欢迎你
-            %br/
-            = user_name
-        - else
-          %a{:href => "/oauth"}
-            = image_tag("/images/Connect_logo.png", :class => "login_button")
-    = render 'layouts/navigation'
-    = yield
+    .content
+      .head
+        %a.back-to-home{:href => "http://stormy-day-2454.herokuapp.com/"}
+          = image_tag("/assets/logo.png", :class => "logo")
+        .profile_place_holder
+          - if logged_in
+            .greeting
+              欢迎你
+              %br/
+              = user_name
+          - else
+            %a{:href => "/oauth"}
+              = image_tag("/images/Connect_logo.png", :class => "login_button")
+      .main-content.clearfix
+        = yield
