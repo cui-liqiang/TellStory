@@ -2,8 +2,9 @@ body {
     font-family: 'Hiragino Sans GB',Helvetica,sans-serif;
     background-color: #F9E9C4;
     background: url("/assets/bg.png");
-    margin: 0;
 }
+
+body, ul, img, p{margin:0;padding:0;}
 
 .content {
     margin: 0 auto;
@@ -60,7 +61,8 @@ p {
 }
 
 .right {
-    float: right;
+    float: left;
+    margin-left:9px;
     width: 35%;
     overflow: auto;
 }
@@ -70,45 +72,66 @@ li {
 }
 
 .new-content, .add-content {
-    width: 660px;
+    margin-left: 10px;
+    width: 580px;
     height: 200px;
-    margin: 10px 10px 10px 10px;
-    border: none;
     font-size: 20px;
 }
 
 .new-title {
-    width: 660px;
+    width: 580px;
     height: 25px;
-    margin: 10px 10px 10px 10px;
-    border: none;
     font-size: 20px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.new-story-content .new-title {
+    border: none;
+}
+
+.new-story-content .new-contentleft {
+    border: none;
 }
 
 .story-added li {
-    list-style: none;
     background-color: #BCC1C5;
     color: white;
-    padding: 0 20px 0 20px;
     margin-top: 10px;
-    margin-left: -40px;
-    position: relative;
 }
 
 .story-content ul {
-    background-color: #DEDCDD;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    list-style: none;
+    padding: 10px;
 }
 
-.story-content {
-    min-height: 200px;
+ul.story_and_follow li.story-start {
+    padding: 10px;
+    border: solid 2px #AED3E6;
+    margin-bottom: 20px;
 }
 
-.story-added li div {
-    position: absolute;
-    bottom: 2px;
-    right: 10px;
+ul.story_and_follow li.follow {
+    border: solid 1px #AED3E6;
+    margin-bottom: 20px;
+}
+
+ul.story_and_follow li.follow .follow-content {
+    float:left;
+    width:500px;
+    margin:10px;
+}
+
+li.vote_wrap{
+    padding-left: 65px;
+}
+
+li.vote_wrap .head_logo_show_wrapper{
+    margin-left: -55px;
+}
+
+li.vote_wrap .follow-content {
+    float:left;
 }
 
 .submit-new, .submit-content {
@@ -119,7 +142,7 @@ li {
     background-color: #972D03;
     color: white;
     float: right;
-    margin-right: 10px;
+    margin-right: 20px;
     font-size: 18px;
     text-decoration: none;
 }

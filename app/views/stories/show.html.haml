@@ -1,28 +1,33 @@
-.container
+.show-container
   .left
     .story-content
       %h3.story-title
         %img.head_logo_show{:src => "#{@story.user.head}/50"}
         = @story.title
       %ul.story_and_follow
-        %li
+        %li.story-start
           = @story.content
-        - @story.adopted_follows.each do |follows|
-          %li
-            %p= follows.content
-      .social
+        - @story.adopted_follows.each do |follow|
+          %li.follow.clearfix
+            .head_logo_show_wrapper
+              %img.head_logo_show{:src => "#{follow.user.head}/50"}
+            .follow-content
+              = follow.content
       = form_for([@story, @story.follows.build], :remote => true, :disable_with => "submitting...") do |f|
-        = f.text_area 'content', :class => 'add-content'
-        = f.submit '提交续写', :class => 'submit-content'
+        .clearfix
+          = f.text_area 'content', :class => 'add-content'
+          = f.submit '提交续写', :class => 'submit-content'
   .right
     .story-added
       %h3.chapter-title 所有本章节续写
-      %ul.story_and_follow
+      %ul
         - @story.current_follows.each do |follow|
-          %li.vote_wrap
-            %p
+          %li.vote_wrap.clearfix
+            .head_logo_show_wrapper
               %img.head_logo_show_follow{:src => "#{follow.user.head}/50"}
-              = follow.content
+            .unadopted-follow.clearfix
+              %p.follow-content
+                = follow.content
             %div
               %a{:href => "#", :onclick => "showCommentsBox(#{@story.id}, #{follow.id})"} 评论
               %span 投票
