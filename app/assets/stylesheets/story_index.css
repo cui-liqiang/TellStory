@@ -1,8 +1,13 @@
 .index-story-content {
-  float: right;
-  width:550px;
+    float: left;
+    margin-left:10px;
+    width:520px;
+}
+
+.index-story-content h4 {
+    margin-top: 0;
 }
 
 ul.hot_people {
-  margin-top: 30px;
+    margin-top: 30px;
 }

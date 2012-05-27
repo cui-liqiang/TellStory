@@ -140,14 +140,14 @@ li {
 
 .story {
     position: relative;
-    margin-right: 10px;
+    padding-right: 10px;
     margin-left: 10px;
     padding-left: 10px;
-    min-height: 150px;
+    padding-top: 20px;
+    border-bottom: dotted 1px #D37C47
 }
 
 img.head_logo {
-    margin-top: 22px;
     float: left;
 }
 
