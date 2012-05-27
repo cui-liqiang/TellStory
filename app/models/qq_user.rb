@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class QQUser < ActiveRecord::Base
   attr_accessible :display_name, :name, :head
 
   has_many :stories
