@@ -63,7 +63,7 @@ p {
 .right {
     float: left;
     margin-left:9px;
-    width: 35%;
+    width: 34%;
     overflow: auto;
 }
 
@@ -154,7 +154,7 @@ li.vote_wrap .follow-content {
     background-color: #B4C720;
     color: white;
     float: right;
-    font-size: 25px;
+    font-size: 18px;
     margin-right: 50px;
     margin-top: 30px;
     padding-left: 70px;

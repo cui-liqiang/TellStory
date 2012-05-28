@@ -1,9 +1,9 @@
 require 'digest'
 
 class User < ActiveRecord::Base
-  attr_accessible :name, :email, :password, :display_name, :head
+  attr_accessible :name, :email, :display_name, :head
+  attr_accessor  :password
   validates :password, :presence => true,
-                       :confirmation => true,
                        :length => { :within => 6..40 }
 
   before_save :encrypt_password

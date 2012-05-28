@@ -12,9 +12,7 @@
 
 .right
   - if logged_in
-    %a.start-story{:href => "/stories/new"}
-      %h1>
-        发起新故事
+    = render "stories/start_stories"
   - else
     = render :partial => "users/new"
   .story-added

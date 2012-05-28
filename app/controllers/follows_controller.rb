@@ -21,7 +21,7 @@ class FollowsController < ApplicationController
 			@story.follows << @follow
 			@follow.update_attributes :round => @story.current_round
 			@story.update_attributes :hot => @story.hot + 1
-			post_weibo @story
+			#post_weibo @story
 			render 'follows/one_follow', :layout => false
 		end
 	end
