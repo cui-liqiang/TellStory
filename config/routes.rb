@@ -5,6 +5,10 @@ TellStory::Application.routes.draw do
     end
   end
 
+  resources :users
+
+  match "sign_up" => "users#new"
+
   match "/login" => "session#create"
   match "/oauth" => "session#new"
 

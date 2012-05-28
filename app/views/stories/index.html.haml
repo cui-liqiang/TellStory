@@ -11,9 +11,12 @@
           %a.view-more{:href => "/stories/#{story.id}"} 查看更多
 
 .right
-  %a.start-story{:href => "/stories/new"}
-    %h1>
-    发起新故事
+  - if logged_in
+    %a.start-story{:href => "/stories/new"}
+      %h1>
+        发起新故事
+  - else
+    = render :partial => "users/new"
   .story-added
     %h3.chapter-title 作者
     %ul.hot_people
