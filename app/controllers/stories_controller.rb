@@ -32,6 +32,7 @@ class StoriesController < ApplicationController
 	def index
 		redirect_to "/login?code=#{params[:code]}"  unless params[:code].nil?
 		@stories = Story.limit(10).order('hot desc')
+    @user = User.new
 	end
 
 	private

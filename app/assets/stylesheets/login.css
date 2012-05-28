@@ -1,0 +1,42 @@
+.login_container {
+    width: 100%;
+    text-align: center;
+}
+
+.login-name, .password {
+    width: 80%;
+    height: 20px;
+    margin: 5px;
+}
+
+.register, .login {
+    width: 80%;
+}
+
+.button {
+    background: #00A6FC;
+    display: inline-block;
+    text-align: center;
+    padding: 9px 34px 11px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13px;
+    font-size: 1.3rem;
+    line-height: 1;
+    font-family: "Helvetica Neue", "Helvetica", Arial, Verdana, sans-serif;
+    position: relative;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    margin: 0;
+}
+
+.blue.button {
+    background-color: #00A6FC;
+}
+
+.large.button {
+    font-size: 18px;
+    padding: 11px 48px 13px;
+}
