@@ -1,7 +1,6 @@
 .login_container
-  -#%button{:class => "large blue button login", :onclick => "login()"} 登陆
   = form_for @user do |f|
     = f.submit "登陆", :class => "large blue button register"
-    = f.text_field :display_name, :class => "login-name", :placeholder => "name@email.com"
+    = f.text_field :email, :class => "login-name", :placeholder => "name@email.com"
     = f.password_field :password, :class => "password", :placeholder => "password"
     = f.submit "注册", :class => "large blue button register"
