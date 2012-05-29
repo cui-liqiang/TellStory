@@ -1,10 +1,16 @@
+# encoding: utf-8
+
 require 'digest'
 
 class User < ActiveRecord::Base
   attr_accessible :name, :email, :display_name, :head
   attr_accessor  :password
-  validates :password, :presence => true,
+  validates :password, :presence => {:message => "密码不能为空"},
                        :length => { :within => 6..40 }
+  validates :email, :presence => {:message => "邮箱不能为空"}
+  validates_format_of :email,
+                      :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i,
+                      :message => "邮箱格式不对"
 
   before_save :encrypt_password
 

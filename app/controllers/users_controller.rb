@@ -1,11 +1,27 @@
 # encoding: utf-8
 class UsersController < ApplicationController
   def create
-    if params[:commit] == "登陆"
-      handle_login
+    @user = user_from_params
+    if !@user.save
+      render "new"
     else
-      handle_register
     end
+    #if params[:commit] == "登陆"
+    #  handle_login
+    #else
+    #  handle_register
+    #end
+  end
+
+  def user_from_params
+    user = User.new
+    user.email = params[:user][:email]
+    user.password = params[:user][:password]
+    user
+  end
+
+  def new
+    @user = User.new
   end
 
   private

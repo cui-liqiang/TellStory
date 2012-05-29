@@ -3,26 +3,37 @@
     text-align: center;
 }
 
+.register-container {
+    margin:0 auto;
+    width: 50%;
+    text-align: center;
+}
+
 .login-name, .password {
-    width: 80%;
+    width: 60%;
     height: 20px;
     margin: 5px;
 }
 
-.register, .login {
+.login {
+    width: 30%;
+    padding:0
+}
+
+.register {
     width: 80%;
+    height: 50px;
+    background-color: #390;
+    font-size: 30px;
 }
 
 .button {
-    background: #00A6FC;
     display: inline-block;
     text-align: center;
     padding: 9px 34px 11px;
     color: white;
     text-decoration: none;
     font-weight: bold;
-    font-size: 13px;
-    font-size: 1.3rem;
     line-height: 1;
     font-family: "Helvetica Neue", "Helvetica", Arial, Verdana, sans-serif;
     position: relative;
@@ -32,11 +43,11 @@
     margin: 0;
 }
 
-.blue.button {
-    background-color: #00A6FC;
+.white.button {
+    background-color: rgba(230, 168, 123, 0.74);
+    color: black;
 }
 
 .large.button {
     font-size: 18px;
-    padding: 11px 48px 13px;
 }
