@@ -1,0 +1,10 @@
+.register-container
+  = form_for @user do |f|
+    .registration-wrapper
+      .error
+        =@user.errors[:email].first if @user.errors[:email].present?
+      = f.text_field :email, :class => "login-name", :placeholder => "name@email.com"
+      .error
+        =@user.errors[:password].first if @user.errors[:password].present?
+      = f.password_field :password, :class => "password", :placeholder => "password"
+      = f.submit "立即注册", :class => "button register"
