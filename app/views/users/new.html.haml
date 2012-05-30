@@ -2,9 +2,13 @@
   = form_for @user do |f|
     .registration-wrapper
       .error
+        =@user.errors[:display_name].first if @user.errors[:display_name].present?
+      = f.text_field :display_name, :class => "login-name", :placeholder => "your name"
+      .error
         =@user.errors[:email].first if @user.errors[:email].present?
       = f.text_field :email, :class => "login-name", :placeholder => "name@email.com"
       .error
         =@user.errors[:password].first if @user.errors[:password].present?
       = f.password_field :password, :class => "password", :placeholder => "password"
+      = f.password_field :password_confirmation, :class => "password", :placeholder => "repeat the password"
       = f.submit "立即注册", :class => "button register"
