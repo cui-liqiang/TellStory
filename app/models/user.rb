@@ -3,7 +3,7 @@
 require 'digest'
 
 class User < ActiveRecord::Base
-  attr_accessible :name, :email, :display_name, :head, :password, :password_confirmation
+  attr_accessible :name, :email, :display_name, :head, :password, :password_confirmation, :active, :confirmation_hash
   attr_accessor  :password
   validates :password, :presence => {:message => "密码不能为空"},
                        :confirmation => {:message => "两次输入的密码不一致"},
@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
                       :message => "邮箱格式不对"
 
   before_save :encrypt_password
+  before_create :generate_confirmation_hash
 
   def has_password?(submitted_password)
     encrypted_password == encrypt(submitted_password)
@@ -42,5 +43,9 @@ class User < ActiveRecord::Base
 
   def secure_hash(string)
     Digest::SHA2.hexdigest(string)
+  end
+
+  def generate_confirmation_hash
+    self.confirmation_hash = Digest::SHA2.hexdigest(Time.now.to_s)
   end
 end

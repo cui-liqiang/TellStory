@@ -5,12 +5,8 @@ class UsersController < ApplicationController
     if !@user.save
       render "new"
     else
+      UserMailer.registration_confirmation(@user).deliver
     end
-    #if params[:commit] == "登陆"
-    #  handle_login
-    #else
-    #  handle_register
-    #end
   end
 
   def user_from_params
@@ -24,6 +20,16 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+  end
+
+  def confirm
+    @user = User.find(params[:user_id])
+    if(@user.nil? or @user.confirmation_hash != params[:confirmation_hash])
+      render "invalid_confirmation"
+    end
+    @user.update_attribute :active, true
+    session[:user] = @user
+    session[:logged_in] = true
   end
 
   private

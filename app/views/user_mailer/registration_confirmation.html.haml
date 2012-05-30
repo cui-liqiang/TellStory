@@ -1,0 +1,6 @@
+%p
+  亲爱的#{@user.display_name}:
+%p
+  请点击此
+  %a{:href => user_confirmation_url(@user.id, @user.confirmation_hash)}> 链接
+  以激活您的账户

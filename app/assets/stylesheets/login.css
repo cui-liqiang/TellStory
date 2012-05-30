@@ -49,5 +49,7 @@
 }
 
 .large.button {
+    display: block;
     font-size: 18px;
+    margin: 0 auto;
 }
