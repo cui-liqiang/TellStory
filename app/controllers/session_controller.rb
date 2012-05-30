@@ -13,9 +13,15 @@ class SessionController < ApplicationController
 	def new
 		redirect_to "https://graph.qq.com/oauth2.0/authorize?response_type=code" + 
 				"&client_id=#{app_id}&redirect_uri=#{callback}&scope=get_info,add_t"
-	end
+  end
 
-	def login_with_qq
+  def destroy
+    session[:logged_in] = false
+    session[:user] = nil
+    redirect_to "/"
+  end
+
+  def login_with_qq
 		code = params[:code]
 		random = 'random'
 		access_token_response = self.class.get("/oauth2.0/token?grant_type=authorization_code&client_id=100266968&" + 
