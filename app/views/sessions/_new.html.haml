@@ -1,0 +1,6 @@
+.login_container
+  = link_to "立即注册", new_user_path, :class => "button register"
+  = form_tag("/login", :method => "post", :id => "login_form") do
+    = text_field_tag :email, "", :class => "login-name", :placeholder => "name@email.com"
+    = password_field_tag :password, "", :class => "password", :placeholder => "password"
+    = submit_tag "登陆", :class => "large white button login"

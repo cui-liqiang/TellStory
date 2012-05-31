@@ -1,18 +1,31 @@
-class SessionController < ApplicationController
+# encoding: utf-8
+class SessionsController < ApplicationController
 	include HTTParty
 
 	base_uri 'https://graph.qq.com'
 
 	def create
-		if(!session[:logged_in])
-			login_with_qq
-		end
-		redirect_to '/'
+		#if(!session[:logged_in])
+		#	login_with_qq
+		#end
+		#redirect_to '/'
+    user = User.authenticate(params[:email], params[:password])
+    logger.puts user.inspect
+    if user.nil?
+      @error_msg = "用户名或密码错"
+    else
+      if !(user.active)
+        @error_msg = "用户尚未激活，请到#{user.email}去验证您的账户"
+      else
+        redirect_to "/"
+      end
+    end
+    render "new" unless @error_msg.nil?
 	end
 
 	def new
-		redirect_to "https://graph.qq.com/oauth2.0/authorize?response_type=code" + 
-				"&client_id=#{app_id}&redirect_uri=#{callback}&scope=get_info,add_t"
+		#redirect_to "https://graph.qq.com/oauth2.0/authorize?response_type=code" +
+		#		"&client_id=#{app_id}&redirect_uri=#{callback}&scope=get_info,add_t"
   end
 
   def destroy
