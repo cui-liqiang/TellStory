@@ -8,11 +8,12 @@ TellStory::Application.routes.draw do
   resources :users
 
   match "/sign_up" => "users#new"
-  match "/sign_out" => "session#destroy", :as => "sign_out"
+  match "/sign_out" => "sessions#destroy", :as => "sign_out"
   match "/users/:user_id/confirmation/:confirmation_hash" => "users#confirm", :as => "user_confirmation"
 
-  match "/login" => "session#create"
-  match "/oauth" => "session#new"
+  post "/login" => "sessions#create"
+  get "/login" => "sessions#new"
+  match "/oauth" => "sessions#new"
 
   root :to => "stories#index"
   # The priority is based upon order of creation:

@@ -9,7 +9,6 @@ $(document).ready(function() {
         $('.story-added ul').prepend(data);
         $('.add-content').val("");
     });
-
 });
 
 function addVote(story_id, follow_id) {
