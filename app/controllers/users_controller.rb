@@ -1,21 +1,12 @@
 # encoding: utf-8
 class UsersController < ApplicationController
   def create
-    @user = user_from_params
+    @user = User.new params[:user]
     if !@user.save
       render "new"
     else
       UserMailer.registration_confirmation(@user).deliver
     end
-  end
-
-  def user_from_params
-    user = User.new
-    user.email = params[:user][:email]
-    user.password = params[:user][:password]
-    user.password_confirmation = params[:user][:password_confirmation]
-    user.display_name = params[:user][:display_name]
-    user
   end
 
   def new
@@ -32,27 +23,4 @@ class UsersController < ApplicationController
     session[:logged_in] = true
   end
 
-  private
-
-  def handle_register
-    user = User.new
-    user.email = params[:user][:email]
-    user.password = params[:user][:password]
-    user.save
-    session[:user] = user
-    session[:logged_in] = true
-    redirect_to "/"
-  end
-
-  def handle_login
-    @user = User.authenticate(params[:user][:email], params[:user][:password])
-    if @user.nil?
-      @user = User.new
-      redirect_to "/"
-    else
-      session[:user] = @user
-      session[:logged_in] = true
-      redirect_to "/"
-    end
-  end
 end

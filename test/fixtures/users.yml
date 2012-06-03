@@ -1,8 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-follow1:
+user1:
   id: 1
-  content: follow1
-  story_id: 1
-  round: 1
-  adopted: false
+  email: cui.liqiang@mail.com
+  display_name: cuiliqiang

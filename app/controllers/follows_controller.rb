@@ -17,9 +17,8 @@ class FollowsController < ApplicationController
 	def create
 		ActiveRecord::Base.transaction do
 			@story = Story.find(params[:story_id])
-			@follow = Follow.create(params[:follow].merge(:user => current_user))
-			@story.follows << @follow
-			@follow.update_attributes :round => @story.current_round
+			@follow = @story.follows.create(params[:follow].merge(:user => current_user,
+                                                            :round => @story.current_round))
 			@story.update_attributes :hot => @story.hot + 1
 			#post_weibo @story
 			render 'follows/one_follow', :layout => false
