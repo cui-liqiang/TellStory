@@ -2,9 +2,7 @@ class CommentsController < ApplicationController
 	before_filter :get_follow
 	def create
 		ActiveRecord::Base.transaction do
-			@comment = Comment.create(params[:comment])
-			@comment.user = current_user
-			@follow.comments << @comment
+			@comment = @follow.comments.create(params[:comment].merge(:user => current_user))
 			render "comments/one_comment", :layout => false
 		end
 	end
