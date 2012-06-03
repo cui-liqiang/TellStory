@@ -10,6 +10,7 @@ TellStory::Application.routes.draw do
   match "/sign_up" => "users#new"
   match "/sign_out" => "sessions#destroy", :as => "sign_out"
   match "/users/:user_id/confirmation/:confirmation_hash" => "users#confirm", :as => "user_confirmation"
+  match "profile" => "users#show"
 
   post "/login" => "sessions#create"
   get "/login" => "sessions#new"
