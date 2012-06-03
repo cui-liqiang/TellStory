@@ -15,5 +15,19 @@ class ApplicationController < ActionController::Base
 
 	def current_user
 		session[:user]
-	end
+  end
+
+  def login_validate
+    redirect_to "/" unless session[:logged_in]
+  end
+
+  def login user
+    session[:user] = user
+    session[:logged_in] = true
+  end
+
+  def logout user
+    session[:logged_in] = false
+    session[:user] = nil
+  end
 end
