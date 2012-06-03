@@ -14,13 +14,15 @@ class SessionsController < ApplicationController
     if user.nil?
       @error_msg = "用户名或密码错"
     else
-      if !(user.active)
-        @error_msg = "用户尚未激活，请到#{user.email}去验证您的账户"
-      else
+      if user.active
+        login(user)
         redirect_to "/"
+        return
+      else
+        @error_msg = "用户尚未激活，请到#{user.email}去验证您的账户"
       end
     end
-    render "new" unless @error_msg.nil?
+    render "new"
 	end
 
 	def new
@@ -29,8 +31,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session[:logged_in] = false
-    session[:user] = nil
+    logout current_user
     redirect_to "/"
   end
 

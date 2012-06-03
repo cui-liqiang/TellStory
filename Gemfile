@@ -21,6 +21,10 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :development do
+  gem 'ruby-debug19', :require => 'ruby-debug'
+end
+
 group :production do
   gem 'thin'
   gem 'pg'

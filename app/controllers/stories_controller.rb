@@ -34,10 +34,4 @@ class StoriesController < ApplicationController
 		@stories = Story.limit(10).order('hot desc')
     @user = User.new
 	end
-
-	private
-
-	def login_validate
-		redirect_to "/oauth" unless session[:logged_in]
-	end
 end
