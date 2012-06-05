@@ -31,6 +31,8 @@
 .user_head {
 	float:left;
 	margin-right:5px;
+    width: 50px;
+    height: 50px
 }
 
 .clearfix:after {

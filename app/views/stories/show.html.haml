@@ -2,7 +2,7 @@
   .left
     .story-content
       %h3.story-title
-        %img.head_logo_show{:src => "#{@story.user.head}/50"}
+        %img.head_logo_show{:src => @story.user.head}
         = @story.title
       %ul.story_and_follow
         %li.story-start
@@ -10,7 +10,7 @@
         - @story.adopted_follows.each do |follow|
           %li.follow.clearfix
             .head_logo_show_wrapper
-              %img.head_logo_show{:src => "#{follow.user.head}/50"}
+              %img.head_logo_show{:src => follow.user.head}}
             .follow-content
               = follow.content
       = form_for([@story, @story.follows.build], :remote => true, :disable_with => "submitting...") do |f|
@@ -24,7 +24,7 @@
         - @story.current_follows.each do |follow|
           %li.vote_wrap.clearfix
             .head_logo_show_wrapper
-              %img.head_logo_show_follow{:src => "#{follow.user.head}/50"}
+              %img.head_logo_show_follow{:src => follow.user.head}
             .unadopted-follow
               %p.follow-content
                 = follow.content
