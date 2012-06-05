@@ -14,7 +14,8 @@ class User < ActiveRecord::Base
                       :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i,
                       :message => "邮箱格式不对"
 
-  before_create :generate_confirmation_hash, :encrypt_password
+  before_create :generate_confirmation_hash
+  before_save :encrypt_password
 
   def has_password?(submitted_password)
     encrypted_password == encrypt(submitted_password)
@@ -29,7 +30,7 @@ class User < ActiveRecord::Base
   private
   def encrypt_password
     self.salt = make_salt if new_record?
-    self.encrypted_password = encrypt(password)
+    self.encrypted_password = encrypt(password) if password
   end
 
   def encrypt(string)

@@ -4,3 +4,5 @@ user1:
   id: 1
   email: cui.liqiang@mail.com
   display_name: cuiliqiang
+  encrypted_password: 324*(&983Y*($
+  salt: salt
