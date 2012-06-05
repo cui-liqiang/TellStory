@@ -11,7 +11,24 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    user_attr = params[:user]
+    current_user.password = user_attr[:password]
+    current_user.password_confirmation = user_attr[:password_confirmation]
+    current_user.display_name = user_attr[:display_name]
+    @user = current_user
+    if current_user.save
+      redirect_to "/profile", :notice => "信息成功更新"
+      return
+    end
+    render :show
+  end
+
   def new
+    if session[:logged_in]
+      redirect_to "/"
+      return
+    end
     @user = User.new
   end
 

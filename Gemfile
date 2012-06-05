@@ -21,6 +21,11 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :test do
+  gem 'rspec'
+  gem 'rspec-rails'
+end
+
 group :development do
   gem 'ruby-debug19', :require => 'ruby-debug'
 end

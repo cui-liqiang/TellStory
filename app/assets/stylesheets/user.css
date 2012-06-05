@@ -2,6 +2,24 @@ div.field, div.actions {
     margin-bottom: 10px;
 }
 
+.user-info-wrapper {
+    text-align: left
+}
+
+.user-info-wrapper input {
+    width:300px;
+    display: block;
+}
+
+.user-info-wrapper input.button {
+    background-color: #390;
+    width:200px
+}
+
+.user-info-wrapper label{
+    color:#D37C47;
+}
+
 #notice {
     color: green;
 }
