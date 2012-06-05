@@ -3,7 +3,7 @@
     %h3.story-title 热门故事
     - @stories.each do |story|
       .story.clearfix
-        %img.head_logo{:src => "#{story.user.head}/50"}
+        %img.head_logo{:src => story.user.head}
         .index-story-content
           %h4= story.title
           %p= story.content

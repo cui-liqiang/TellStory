@@ -30,16 +30,15 @@ function showCommentsBox(story_id, follow_id) {
         success: function(html) {
             $('body').append("<div class='for_popup'></div>");
             $('.for_popup').append(html);
-            $('.for_popup').dialog({ 
+            $('.for_popup').dialog({
+                width: 500,
                 modal: true, 
-                draggable: true, 
-                resizable: true, 
+                draggable: true,
                 title: '该续写的评论',
                 close: function(event, ui) {
                     $('.for_popup').remove();
                 }
             });
-            $('.ui-widget-overlay').attr('style', 'height: 700px; position:absolute;top:0');
         }
     })
 }

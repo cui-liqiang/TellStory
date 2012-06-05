@@ -7,7 +7,7 @@
       - @follow.comments.each do |comment|
         .clearfix.comment-container
           .user_head
-            %img{:src => "#{comment.user.head}/50"}/
+            %img{:src => comment.user.head}/
           .comment= comment.content
   .new_comment
     = form_for([@story, @follow, @follow.comments.build], :remote => true) do |f|
