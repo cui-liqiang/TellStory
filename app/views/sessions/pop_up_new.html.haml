@@ -1,0 +1,9 @@
+.login_container
+  .error
+    - if !@error_msg.nil?
+      = @error_msg
+  = form_tag("/login", :method => "post", :id => "login_form", :remote => true) do
+    = text_field_tag :email, "", :class => "login-name", :placeholder => "name@email.com"
+    = password_field_tag :password, "", :class => "password", :placeholder => "password"
+    = hidden_field_tag :ajax, true
+    = submit_tag "登陆", :class => "large white button login"
