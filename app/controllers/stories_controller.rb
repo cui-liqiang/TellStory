@@ -1,7 +1,7 @@
 # encoding: utf-8
 require 'poster'
 class StoriesController < ApplicationController
-	before_filter :login_validate, :except => [:index, :show]
+	before_filter :login_validate, :except => [:index]
 
 	include Poster
 

@@ -10,32 +10,22 @@ class SessionsController < ApplicationController
 		#end
 		#redirect_to '/'
     user = User.authenticate(params[:email], params[:password])
+    logger.puts user.inspect
     if user.nil?
       @error_msg = "用户名或密码错"
     else
       if user.active
         login(user)
+        redirect_to "/"
+        return
       else
         @error_msg = "用户尚未激活，请到#{user.email}去验证您的账户"
       end
     end
-    if params[:ajax]
-      render "sessions/pop_up_new", :layout => false, :status => auth_result_status(@error_msg)
-    else
-      if @error_msg
-        render :new
-      else
-        redirect_to "/"
-      end
-    end
+    render "new"
 	end
 
-  def auth_result_status error_msg
-    error_msg.nil? ? 200 : 401
-  end
-
-  def new
-    redirect_to "/" if session[:logged_in]
+	def new
 		#redirect_to "https://graph.qq.com/oauth2.0/authorize?response_type=code" +
 		#		"&client_id=#{app_id}&redirect_uri=#{callback}&scope=get_info,add_t"
   end

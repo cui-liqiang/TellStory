@@ -3,7 +3,6 @@ require 'poster'
 
 class FollowsController < ApplicationController
 	include Poster
-  before_filter :check_login
 
 	def update
 		follow = Follow.find_by_id(params[:id])
@@ -24,9 +23,5 @@ class FollowsController < ApplicationController
 			#post_weibo @story
 			render 'follows/one_follow', :layout => false
 		end
-  end
-
-  def check_login
-    render "sessions/pop_up_new", :layout => false, :status => 401 unless current_user
-  end
+	end
 end
