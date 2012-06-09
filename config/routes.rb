@@ -13,7 +13,7 @@ TellStory::Application.routes.draw do
   match "profile" => "users#show", :as => "profile"
 
   post "/login" => "sessions#create"
-  get "/login" => "sessions#new"
+  get "/login" => "sessions#new", :as => "login"
   match "/oauth" => "sessions#new"
 
   root :to => "stories#index"

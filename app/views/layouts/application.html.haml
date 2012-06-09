@@ -7,18 +7,20 @@
     = csrf_meta_tags
     %meta{:charset => "UTF-8"}
     %meta{:content => "205023664725154115245460527351006375", :property => "qc:admins"}/
+    %meta{:property => "wb:webmaster", :content => "e62ce322eb41581f"}/
   %body
+    .headline
+      .login-user-info
+        .greeting
+          - if logged_in
+            = "欢迎你"
+            = link_to user_name, profile_path
+            = link_to "登出", sign_out_path
+          - else
+            = link_to "登陆", login_path
     .content
       .head
         %a.back-to-home{:href => "http://stormy-day-2454.herokuapp.com/"}
           = image_tag("/assets/logo.png", :class => "logo")
-        .profile_place_holder
-          - if logged_in
-            .greeting
-              欢迎你
-              %br/
-              = link_to user_name, profile_path
-              %br
-              = link_to "登出", sign_out_path
       .main-content.clearfix
         = yield

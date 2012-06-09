@@ -22,7 +22,11 @@ class SessionsController < ApplicationController
     if params[:ajax]
       render "sessions/pop_up_new", :layout => false, :status => auth_result_status(@error_msg)
     else
-      render :new
+      if @error_msg
+        render :new
+      else
+        redirect_to "/"
+      end
     end
 	end
 
