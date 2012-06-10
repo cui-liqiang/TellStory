@@ -13,8 +13,6 @@
 .right
   - if logged_in
     = render "stories/start_stories"
-  - else
-    = render :partial => "sessions/new"
   .story-added
     %h3.chapter-title 作者
     %ul.hot_people

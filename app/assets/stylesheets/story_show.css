@@ -27,3 +27,7 @@ ul.story_and_follow {
 .show-container .story-content {
     background-color: white;
 }
+.prompt {
+    color:red;
+    text-align: center
+}

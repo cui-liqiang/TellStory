@@ -3,9 +3,7 @@ class SinaSessionsController < ApplicationController
 
   def create
     unless session[:logged_in]
-      weibo_user = find_or_create_sina_user
-      if weibo_user.user
-      login(weibo_user)
+      login(find_or_create_sina_user)
       redirect_to_callback_url
       return
     end

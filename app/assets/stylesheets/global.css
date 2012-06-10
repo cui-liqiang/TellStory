@@ -18,3 +18,8 @@
     margin-top: 3px;
     float: right;
 }
+
+.sns_login {
+    margin-top: -3px;
+    line-height: 16px
+}

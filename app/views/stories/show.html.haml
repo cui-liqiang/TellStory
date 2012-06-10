@@ -19,12 +19,8 @@
             = f.text_area 'content', :class => 'add-content'
             = f.submit '提交续写', :class => 'submit-content'
       - else
-        登陆后你就可以提交你自己的续写了：）
-        %a{:onclick => "gotoLinkWithCurrentPageURL(\"#{login_url}\")", :href => "#"} 登陆
-        .sns-login
-          或者使用已有账户登陆：
-          %a{:onclick => "gotoLinkWithCurrentPageURL(\"#{sina_login_url}\")"}
-            = image_tag 'sina_login.png'
+        .prompt
+          请点击右上角使用微博登陆后就可以续写故事了
   .right
     .story-added
       %h3.chapter-title 所有本章节续写
@@ -36,8 +32,9 @@
             .unadopted-follow
               %p.follow-content
                 = follow.content
-            %div
-              %a{:href => "#", :onclick => "showCommentsBox(#{@story.id}, #{follow.id})"} 评论
-              %span 投票
-              %span.vote{:id => "vote_for_follow_#{follow.id}", :onclick => "addVote(#{@story.id}, #{follow.id})"}
-                %span= follow.votes.size
+            - if logged_in
+              %div
+                %a{:href => "#", :onclick => "showCommentsBox(#{@story.id}, #{follow.id})"} 评论
+                %span 投票
+                %span.vote{:id => "vote_for_follow_#{follow.id}", :onclick => "addVote(#{@story.id}, #{follow.id})"}
+                  %span= follow.votes.size
