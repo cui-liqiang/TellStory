@@ -13,10 +13,14 @@
               %img.head_logo_show{:src => follow.user.head}}
             .follow-content
               = follow.content
-      = form_for([@story, @story.follows.build], :remote => true, :disable_with => "submitting...") do |f|
-        .clearfix
-          = f.text_area 'content', :class => 'add-content'
-          = f.submit '提交续写', :class => 'submit-content'
+      - if logged_in
+        = form_for([@story, @story.follows.build], :remote => true, :disable_with => "submitting...") do |f|
+          .clearfix
+            = f.text_area 'content', :class => 'add-content'
+            = f.submit '提交续写', :class => 'submit-content'
+      - else
+        登陆后你就可以提交你自己的续写了：）
+        %a{:onclick => "gotoLinkWithCurrentPageURL(\"#{login_url}\")", :href => "#"} 登陆
   .right
     .story-added
       %h3.chapter-title 所有本章节续写

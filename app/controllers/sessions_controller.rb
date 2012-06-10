@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
     else
       if user.active
         login(user)
-        redirect_to "/"
+        redirect_to_callback_url
         return
       else
         @error_msg = "用户尚未激活，请到#{user.email}去验证您的账户"
@@ -25,7 +25,13 @@ class SessionsController < ApplicationController
     render "new"
 	end
 
-	def new
+  def redirect_to_callback_url
+    redirect_to session[:redirect_to] || "/"
+    session[:redirect_to] = nil
+  end
+
+  def new
+    session[:redirect_to] = params[:redirect_to]
 		#redirect_to "https://graph.qq.com/oauth2.0/authorize?response_type=code" +
 		#		"&client_id=#{app_id}&redirect_uri=#{callback}&scope=get_info,add_t"
   end

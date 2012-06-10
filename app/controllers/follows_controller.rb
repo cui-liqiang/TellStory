@@ -4,6 +4,8 @@ require 'poster'
 class FollowsController < ApplicationController
 	include Poster
 
+  before_filter :check_login
+
 	def update
 		follow = Follow.find_by_id(params[:id])
 		if follow.users.include?(current_user)
@@ -23,5 +25,9 @@ class FollowsController < ApplicationController
 			#post_weibo @story
 			render 'follows/one_follow', :layout => false
 		end
-	end
+  end
+
+  def check_login
+    render :text => "", :status => 401 unless current_user
+  end
 end
