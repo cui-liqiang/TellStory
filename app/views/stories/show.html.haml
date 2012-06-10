@@ -21,6 +21,10 @@
       - else
         登陆后你就可以提交你自己的续写了：）
         %a{:onclick => "gotoLinkWithCurrentPageURL(\"#{login_url}\")", :href => "#"} 登陆
+        .sns-login
+          或者使用已有账户登陆：
+          %a{:onclick => "gotoLinkWithCurrentPageURL(\"#{sina_login_url}\")"}
+            = image_tag 'sina_login.png'
   .right
     .story-added
       %h3.chapter-title 所有本章节续写

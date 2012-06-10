@@ -3,7 +3,12 @@ class ApplicationController < ActionController::Base
 
   def callback
 		"stormy-day-2454.herokuapp.com"
-	end
+  end
+
+  def redirect_to_callback_url
+    redirect_to session[:redirect_to] || "/"
+    session[:redirect_to] = nil
+  end
 
 	def app_key
 		"859b88ec720d4b910351e9408bc5cec6"

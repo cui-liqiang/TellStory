@@ -5,5 +5,6 @@ module ApplicationHelper
 
 	def user_name
 		session[:user].display_name || session[:user].email
-	end	
+  end
+
 end

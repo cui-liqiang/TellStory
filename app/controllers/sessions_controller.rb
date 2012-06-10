@@ -25,11 +25,6 @@ class SessionsController < ApplicationController
     render "new"
 	end
 
-  def redirect_to_callback_url
-    redirect_to session[:redirect_to] || "/"
-    session[:redirect_to] = nil
-  end
-
   def new
     session[:redirect_to] = params[:redirect_to]
 		#redirect_to "https://graph.qq.com/oauth2.0/authorize?response_type=code" +
