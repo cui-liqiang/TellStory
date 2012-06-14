@@ -9,6 +9,24 @@ $(document).ready(function() {
         $('.story-added ul').prepend(data);
         $('.add-content').val("");
     });
+
+    $(".index-container .story-content").autobrowse({
+        url: function (offset)
+        {
+            return "/stories/more?offset=OFFSET".replace(/OFFSET/, offset);
+        },
+        template: function (response)
+        {
+            return response;
+        },
+        itemsReturned: function (response) {
+            var reg = /story clearfix/g;
+            var match = response.match(reg);
+            return match == null ? 0 : match.length
+        },
+        offset: 10,
+        loader: '<div class="loader"></div>'
+    });
 });
 
 function addVote(story_id, follow_id) {

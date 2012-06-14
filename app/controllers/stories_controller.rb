@@ -1,7 +1,7 @@
 # encoding: utf-8
 require 'poster'
 class StoriesController < ApplicationController
-	before_filter :login_validate, :except => [:index, :show]
+	before_filter :login_validate, :except => [:index, :show, :more]
 
 	include Poster
 
@@ -33,5 +33,11 @@ class StoriesController < ApplicationController
 		redirect_to "/login?code=#{params[:code]}"  unless params[:code].nil?
 		@stories = Story.limit(10).order('hot desc')
     @user = User.new
-	end
+  end
+
+  def more
+    offset = params[:offset]
+    @stories = Story.offset(offset).limit(10).order('hot desc')
+    render :layout => false
+  end
 end

@@ -1,10 +1,11 @@
 TellStory::Application.routes.draw do
+  get "/stories/more"
+
   resources :stories do
     resources :follows do
       resources :comments
     end
   end
-
 
   match "/sign_out" => "sessions#destroy", :as => "sign_out"
 
@@ -12,6 +13,7 @@ TellStory::Application.routes.draw do
   get "/login" => "sessions#new", :as => "login"
   get "/sina_login" => "sina_sessions#new", :as => "sina_login"
   get "/sina_callback" => "sina_sessions#create", :as => "sina_callback"
+
   match "/oauth" => "sessions#new"
 
   root :to => "stories#index"

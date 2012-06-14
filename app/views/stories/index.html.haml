@@ -1,26 +1,27 @@
-.left
-  .story-content
-    %h3.story-title 热门故事
-    - @stories.each do |story|
-      .story.clearfix
-        %img.head_logo{:src => story.user.head}
-        .index-story-content
-          %h4= story.title
-          %p= story.content
-        %br
-          %a.view-more{:href => "/stories/#{story.id}"} 查看更多
+.index-container
+  .left
+    .story-content
+      %h3.story-title 热门故事
+      - @stories.each do |story|
+        .story.clearfix
+          %img.head_logo{:src => story.user.head}
+          .index-story-content
+            %h4= story.title
+            %p= story.content
+          %br
+            %a.view-more{:href => "/stories/#{story.id}"} 查看更多
 
-.right
-  - if logged_in
-    = render "stories/start_stories"
-  .story-added
-    %h3.chapter-title 作者
-    %ul.hot_people
-      %li
-        %p 张三
-      %li
-        %p 李四
-      %li
-        %p 王五
-      %li
-        %p 赵六
+  .right
+    - if logged_in
+      = render "stories/start_stories"
+    .story-added
+      %h3.chapter-title 作者
+      %ul.hot_people
+        %li
+          %p 张三
+        %li
+          %p 李四
+        %li
+          %p 王五
+        %li
+          %p 赵六
