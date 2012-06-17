@@ -1,13 +1,1 @@
-- follow = @follow
-%li.vote_wrap.clearfix
-  .head_logo_show_wrapper
-    = render :partial => "shared/head_with_link", :locals => {:user => follow.user}
-  .unadopted-follow
-    %p.follow-content
-      = follow.content
-  - if logged_in
-    %div
-      %a{:href => "#", :onclick => "showCommentsBox(#{@story.id}, #{follow.id})"} 评论
-      %span 投票
-      %span.vote{:id => "vote_for_follow_#{follow.id}", :onclick => "addVote(#{@story.id}, #{follow.id})"}
-        %span= follow.votes.size
+=render :partial => "follows/one_follow", :locals => {:follow => @follow}
