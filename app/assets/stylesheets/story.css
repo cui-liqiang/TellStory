@@ -87,14 +87,13 @@ li {
 }
 
 .new-story-content .new-title {
-    border: none;
 }
 
 .new-story-content .new-contentleft {
     border: none;
 }
 
-.story-added li {
+.hot-people li {
     background-color: #BCC1C5;
     color: white;
     margin-top: 10px;

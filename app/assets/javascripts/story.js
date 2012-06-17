@@ -27,6 +27,11 @@ $(document).ready(function() {
         offset: 10,
         loader: '<div class="loader"></div>'
     });
+
+    //retrieve hot people
+    $.get("/hotest_users", function(data) {
+        $('.hot-people').html(data)
+    })
 });
 
 function addVote(story_id, follow_id) {

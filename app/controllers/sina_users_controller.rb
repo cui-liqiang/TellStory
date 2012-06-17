@@ -7,4 +7,9 @@ class SinaUsersController < ApplicationController
     @activities += Comment.find_all_by_user_id @user.id
     @activities.sort!{|a, b| b.created_at <=> a.created_at}
   end
+
+  def hotest
+    @users = SinaUser.hotest_users
+    render :layout => false
+  end
 end

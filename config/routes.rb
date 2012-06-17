@@ -14,6 +14,7 @@ TellStory::Application.routes.draw do
   get "/sina_login" => "sina_sessions#new", :as => "sina_login"
   get "/sina_callback" => "sina_sessions#create", :as => "sina_callback"
   get "/users/:id" => "sina_users#show", :as => "sina_user"
+  get "/hotest_users" => "sina_users#hotest"
 
   match "/oauth" => "sessions#new"
 

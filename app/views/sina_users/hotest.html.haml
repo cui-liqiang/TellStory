@@ -1,0 +1,4 @@
+-@users.each do |user|
+  %li.clearfix
+    = render :partial => "shared/head_with_link", :locals => {:user => user}
+    %p #{user.display_name}

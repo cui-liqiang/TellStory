@@ -12,7 +12,7 @@ class FollowsController < ApplicationController
 			render :text => "你已经投过这个了，不可以重复投票哦", :status => 403
 		else
 			follow.users << current_user
-      follow.story.update_attribute :update_at, Time.now
+      follow.story.update_attribute :updated_at, Time.now
 			render :text => follow.votes.size.to_s
 		end
 	end

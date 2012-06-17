@@ -3,4 +3,6 @@ class Vote < ActiveRecord::Base
 
   belongs_to :follow
   belongs_to :user, :class_name => SinaUser, :foreign_key => :user_id
+
+  CREDIT = 1
 end

@@ -14,14 +14,5 @@
   .right
     - if logged_in
       = render "stories/start_stories"
-    .story-added
-      %h3.chapter-title 作者
-      %ul.hot_people
-        %li
-          %p 张三
-        %li
-          %p 李四
-        %li
-          %p 王五
-        %li
-          %p 赵六
+    %h3.chapter-title 最活跃用户
+    %ul.hot-people

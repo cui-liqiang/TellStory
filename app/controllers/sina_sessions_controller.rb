@@ -14,4 +14,5 @@ class SinaSessionsController < ApplicationController
     session[:redirect_to] = params[:redirect_to]
     redirect_to auth_url
   end
+
 end

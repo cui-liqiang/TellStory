@@ -4,6 +4,8 @@ class Story < ActiveRecord::Base
   has_many :follows, :order => "round ASC"
   belongs_to :user, :class_name => SinaUser, :foreign_key => :user_id
 
+  CREDIT = 5
+
   def adopted_follows
   	follows.select {|follow| follow.adopted}
   end

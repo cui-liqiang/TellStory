@@ -6,4 +6,6 @@ class Follow < ActiveRecord::Base
   has_many :votes
   has_many :users, :through => :votes, :class_name => SinaUser, :foreign_key => :user_id
   has_many :comments
+
+  CREDIT = 4
 end
