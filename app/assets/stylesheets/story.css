@@ -217,8 +217,13 @@ img.head_logo {
     clear: both;
 }
 
-.story-preview {
+.story-preview, .follow-preview {
     border: 1px solid #D37C47;
     width: 90%;
     margin: 0 auto
+}
+
+.follow-preview .follow-title, .follow-preview .comment-title{
+    font-style: italic;
+    font-size: 12px;
 }
