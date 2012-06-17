@@ -3,7 +3,7 @@ require 'poster'
 class StoriesController < ApplicationController
 	before_filter :login_validate, :except => [:index, :show, :more]
 
-	include Poster
+	include SinaPoster
 
 	def new
 		@story = Story.new
@@ -18,7 +18,7 @@ class StoriesController < ApplicationController
 		respond_to do |format|
       		if @story.save
         		format.html { redirect_to(@story, :notice => 'Story was successfully created.') }
-        		#post_weibo @story
+        		post_weibo @story
       		else
         		format.html { render :action => "new" }
       		end

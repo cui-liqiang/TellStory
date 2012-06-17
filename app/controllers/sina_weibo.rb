@@ -5,10 +5,11 @@ module SinaWeibo
   end
 
   def find_or_create_sina_user
+    session[:access_token] = access_token
     SinaUser.find_or_create_by_sina_id_and_display_name_and_head(
-                    :sina_id => user_info['id'].to_s,
-                    :display_name => user_info['screen_name'],
-                    :head => user_info['profile_image_url']
+        :sina_id => user_info['id'].to_s,
+        :display_name => user_info['screen_name'],
+        :head => user_info['profile_image_url']
     )
   end
 

@@ -2,7 +2,7 @@
 require 'poster'
 
 class FollowsController < ApplicationController
-	include Poster
+	include SinaPoster
 
   before_filter :check_login
 
@@ -23,7 +23,7 @@ class FollowsController < ApplicationController
 			@follow = @story.follows.create(params[:follow].merge(:user => current_user,
                                                             :round => @story.current_round))
 			@story.update_attributes :hot => @story.hot + 1, :updated_at => Time.now
-			#post_weibo @story
+			post_weibo @story
 			render 'follows/one_follow', :layout => false
 		end
   end
