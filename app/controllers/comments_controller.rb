@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
 	def create
 		ActiveRecord::Base.transaction do
 			@comment = @follow.comments.create(params[:comment].merge(:user => current_user))
+      @comment.follow.story.update_attribute :update_at, Time.now
 			render "comments/one_comment", :layout => false
 		end
 	end
