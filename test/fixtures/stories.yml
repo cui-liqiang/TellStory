@@ -1,8 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-story1:
-  id: 1
-  title: title
-  content: content
-  current_round: 1
-  user_id: 1
