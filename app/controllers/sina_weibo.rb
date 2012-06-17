@@ -6,7 +6,7 @@ module SinaWeibo
 
   def find_or_create_sina_user
     SinaUser.find_or_create_by_sina_id_and_display_name_and_head(
-                    :sina_id => user_info['id'],
+                    :sina_id => user_info['id'].to_s,
                     :display_name => user_info['screen_name'],
                     :head => user_info['profile_image_url']
     )
