@@ -1,0 +1,7 @@
+ul.user-activity {
+    list-style: none
+}
+
+li.activity {
+    margin-bottom: 10px
+}

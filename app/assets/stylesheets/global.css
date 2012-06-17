@@ -23,3 +23,8 @@
     margin-top: -3px;
     line-height: 16px
 }
+
+.separator {
+    border-bottom: 2px solid #000000;
+    margin: 20px 0
+}

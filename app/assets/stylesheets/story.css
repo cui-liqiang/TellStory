@@ -216,3 +216,9 @@ img.head_logo {
 .clearfix:after {
     clear: both;
 }
+
+.story-preview {
+    border: 1px solid #D37C47;
+    width: 90%;
+    margin: 0 auto
+}

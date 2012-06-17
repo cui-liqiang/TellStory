@@ -7,4 +7,12 @@ module ApplicationHelper
 		session[:user].display_name
   end
 
+  def folder_name clazz
+    {
+        Story => "stories",
+        Follow => "follows",
+        Comment => "comments"
+    }[clazz]
+  end
+
 end
