@@ -1,6 +1,6 @@
 .user-profile
   .user-info-wrapper.clearfix
-    %img.head_logo{:src => @user.head}
+    = render :partial => "shared/head_with_link", :locals => {:user => @user}
     %span
       = @user.display_name
       %a{:href => weibo_url(@user.sina_id)}访问该用户的新浪微博

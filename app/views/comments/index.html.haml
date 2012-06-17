@@ -7,7 +7,7 @@
       - @follow.comments.each do |comment|
         .clearfix.comment-container
           .user_head
-            %img{:src => comment.user.head}/
+            = render :partial => "shared/head_with_link", :locals => {:user => comment.user}
           .comment= comment.content
   .new_comment
     = form_for([@story, @follow, @follow.comments.build], :remote => true) do |f|

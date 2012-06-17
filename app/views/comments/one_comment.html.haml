@@ -1,5 +1,5 @@
 %link{:href => "/assets/application.css", :rel => "stylesheet"}
   .clearfix.comment-container
     .user_head
-      %img{:src => @comment.user.head}/
+      = render :partial => "shared/head_with_link", :locals => {:user => @comment.user}
     .comment= @comment.content

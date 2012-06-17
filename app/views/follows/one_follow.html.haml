@@ -1,7 +1,7 @@
 - follow = @follow
 %li.vote_wrap
   %p
-    %img.head_logo_show_follow{:src => follow.user.head}
+    = render :partial => "shared/head_with_link", :locals => {:user => follow.user}
     = follow.content
   %div
     %a{:href => "#", :onclick => "showCommentsBox(#{@story.id}, #{follow.id})"} 评论

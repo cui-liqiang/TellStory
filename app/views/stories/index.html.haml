@@ -4,8 +4,7 @@
       %h3.story-title 热门故事
       - @stories.each do |story|
         .story.clearfix
-          %a{:href => sina_user_path(story.user.id)}
-            %img.head_logo{:src => story.user.head}
+          = render :partial => "shared/head_with_link", :locals => {:user => story.user}
           .index-story-content
             %h4= story.title
             %p= story.content
