@@ -2,21 +2,15 @@ body {
     font-family: 'Hiragino Sans GB',Helvetica,sans-serif;
     background-color: #F9E9C4;
     background: url("/assets/bg.png");
+    font-size: 15px;
 }
 
 body, ul, img, p{margin:0;padding:0;}
 
-.content {
-    margin: 30px auto;
-    width: 960px;
-}
-
 .head {
-    height: 100px;
     background: 250px url("../images/fubiaoti.png") no-repeat;
     background-color: #DED8D6;
-    width: 100%;
-    margin-top: 0;
+    margin-top: 60px;
 }
 
 .logo {
@@ -97,6 +91,10 @@ li {
     background-color: #BCC1C5;
     color: white;
     margin-top: 10px;
+}
+
+.story-content {
+    background-color: white;
 }
 
 .story-content ul {
@@ -217,9 +215,7 @@ img.head_logo {
 }
 
 .story-preview, .follow-preview {
-    border: 1px solid #D37C47;
-    width: 90%;
-    margin: 0 auto
+ 
 }
 
 .follow-preview .follow-title, .follow-preview .comment-title{

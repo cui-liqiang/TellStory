@@ -4,7 +4,6 @@
     %span
       = @user.display_name
       %a{:href => weibo_url(@user.sina_id)}访问该用户的新浪微博
-  .separator
   %h3 TA参加过的活动：
   - @activities.each do |activity|
     %ul.user-activity

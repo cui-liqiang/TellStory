@@ -9,20 +9,24 @@
     %meta{:content => "205023664725154115245460527351006375", :property => "qc:admins"}/
     %meta{:property => "wb:webmaster", :content => "e62ce322eb41581f"}/
   %body
-    .headline
-      .login-user-info
-        .greeting
-          - if logged_in
-            = image_tag session[:user].head, :width => 25, :height =>25
-            = user_name
-            = link_to "登出", sign_out_path
-          - else
-            .sns_login
-              %a{:onclick => "gotoLinkWithCurrentPageURL(\"#{sina_login_url}\")", :href => "#"}
-                使用微博账号登陆
-    .content
-      .head
-        %a.back-to-home{:href => "http://stormy-day-2454.herokuapp.com/"}
-          = image_tag("/assets/logo.png", :class => "logo")
-      .main-content.clearfix
-        = yield
+    .navbar-fixed-top.navbar
+      .navbar-inner
+        .container
+          %ul.nav
+            - if logged_in
+              %li
+                %a
+                  = image_tag session[:user].head, :width => 25, :height =>25
+                = user_name
+              %li
+                = link_to "登出", sign_out_path
+            - else
+              %li
+                %a{:onclick => "gotoLinkWithCurrentPageURL(\"#{sina_login_url}\")", :href => "#"}
+                  使用微博账号登陆
+    .container.content
+      .row.show-grid
+        .span12.head
+          %a.back-to-home{:href => "http://stormy-day-2454.herokuapp.com/"}
+            = image_tag("/assets/logo.png", :class => "logo")
+      = yield
