@@ -1,0 +1,8 @@
+%h2 Follow
+%p
+  = @follow.content
+%h2  Comments
+- @follow.comments.each do |comment|
+  %p
+    = comment.content
+    = link_to "delete", admin_story_follow_comment_path(@follow.story, @follow, comment), method: :delete, data: { confirm: 'Are you sure?' }

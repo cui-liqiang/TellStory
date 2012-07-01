@@ -7,6 +7,14 @@ TellStory::Application.routes.draw do
     end
   end
 
+  namespace :admin do
+    resources :stories do
+      resources :follows do
+        resources :comments
+      end
+    end
+  end
+
   match "/sign_out" => "sessions#destroy", :as => "sign_out"
 
   post "/login" => "sessions#create"

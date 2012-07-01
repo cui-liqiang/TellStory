@@ -1,0 +1,9 @@
+%h2  Story
+%p
+  = @story.content
+%h2  follows
+- @story.follows.each do |follow|
+  %p
+    = follow.content
+    = link_to "edit", edit_admin_story_follow_path(@story, follow)
+    = link_to "delete", admin_story_follow_path(@story, follow), method: :delete, data: { confirm: 'Are you sure?' }

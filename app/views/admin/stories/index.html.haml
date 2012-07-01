@@ -1,0 +1,6 @@
+%h2 Stories:
+- @stories.each do |story|
+  %div
+    = "title: #{story.title}"
+    = link_to "edit", edit_admin_story_path(story)
+    = link_to 'delete', admin_story_path(story), method: :delete, data: { confirm: 'Are you sure?' }
