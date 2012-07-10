@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
 	protect_from_forgery
 
   def callback
-		"stormy-day-2454.herokuapp.com"
+		"www.tellstoryto.us"
   end
 
   def redirect_to_callback_url

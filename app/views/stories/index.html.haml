@@ -2,15 +2,7 @@
   .span8
     .story-content
       %h3.story-title.font-big 热门故事
-      - @stories.each do |story|
-        .story.clearfix
-          = render :partial => "shared/head_with_link", :locals => {:user => story.user}
-          .index-story-content
-            %h4.font-middle= story.title
-            %p.artfont.font-small.story-preview= story.content
-          %br
-            %a.view-more{:href => "/stories/#{story.id}"} 查看更多
-
+      = render :partial => "stories_list"
   .span4
     - if logged_in
       = render "stories/start_stories"

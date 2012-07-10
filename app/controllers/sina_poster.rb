@@ -7,6 +7,6 @@ module SinaPoster
 
 	def post_content story
 		random = (rand * 10000).to_s[0..3]
-		"#{random}我在转角童话上面参与了一篇故事“#{story.title}”，大家去看看，续写一下吧~ http://stormy-day-2454.herokuapp.com/stories/#{story.id}"
+		"#{random}我在转角童话上面参与了一篇故事“#{story.title}”，大家去看看，续写一下吧~ http://www.tellstoryto.us/stories/#{story.id}"
 	end
 end

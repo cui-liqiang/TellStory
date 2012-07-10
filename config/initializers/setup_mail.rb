@@ -8,4 +8,4 @@ ActionMailer::Base.smtp_settings = {
     :enable_starttls_auto => true
 }
 
-ActionMailer::Base.default_url_options[:host] = "stormy-day-2454.herokuapp.com"
+ActionMailer::Base.default_url_options[:host] = "www.tellstoryto.us"

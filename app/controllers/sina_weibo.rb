@@ -36,14 +36,14 @@ module SinaWeibo
   end
 
   def client_secret
-    "507305b6cf92b83f0a1f0af932323a92"
+    "df23584e4f081ef5a3eaf34ad01f8f09"
   end
 
   def client_id
-    "570559734"
+    "1209882826"
   end
 
   def callback_uri
-    "http://stormy-day-2454.herokuapp.com/sina_callback"
+    "http://www.tellstoryto.us/sina_callback"
   end
 end
