@@ -31,13 +31,19 @@ class StoriesController < ApplicationController
 
 	def index
 		redirect_to "/login?code=#{params[:code]}"  unless params[:code].nil?
-		@stories = Story.limit(10).order('updated_at desc')
+		@stories = Story.limit(10).order(story_order_rule)
     @user = User.new
   end
 
   def more
     offset = params[:offset]
-    @stories = Story.offset(offset).limit(10).order('hot desc')
+    @stories = Story.offset(offset).limit(10).order(story_order_rule)
     render :layout => false
+  end
+
+  private
+
+  def story_order_rule
+    'updated_at desc'
   end
 end
