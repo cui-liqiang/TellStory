@@ -115,7 +115,7 @@ ul.story_and_follow li.follow {
 
 ul.story_and_follow li.follow .follow-content {
     float:left;
-    width:500px;
+    width:480px;
     margin:10px;
 }
 
@@ -124,7 +124,7 @@ li.vote_wrap{
 }
 
 li.vote_wrap .head_logo_show_wrapper{
-    margin-left: -55px;
+    margin-left: -70px;
 }
 
 li.vote_wrap .follow-content {
