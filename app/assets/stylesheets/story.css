@@ -70,6 +70,7 @@ li {
     width: 580px;
     height: 200px;
     font-size: 20px;
+    line-height: 24px;
 }
 
 .new-title {
@@ -117,6 +118,7 @@ ul.story_and_follow li.follow .follow-content {
     float:left;
     width:480px;
     margin:10px;
+    line-height:20px;
 }
 
 li.vote_wrap{
