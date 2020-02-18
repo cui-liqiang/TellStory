@@ -18,7 +18,6 @@ steps:
     namespace: 'default'
     command: 'create'
     useConfigurationFile: true
-    configuration: 'manifest/deployment.yaml'
     secretType: 'dockerRegistry'
     containerRegistryType: 'Azure Container Registry'
 
