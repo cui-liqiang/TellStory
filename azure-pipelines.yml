@@ -17,7 +17,9 @@ steps:
 - script: |
     gem install bundler
     bundle install --retry=3 --jobs=4
+
 - task: Kubernetes@1
+  name: kube
   inputs:
     connectionType: 'Kubernetes Service Connection'
     kubernetesServiceEndpoint: 'aliyunk8s'
