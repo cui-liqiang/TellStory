@@ -16,8 +16,8 @@ steps:
     connectionType: 'Kubernetes Service Connection'
     kubernetesServiceEndpoint: 'aliyunk8s'
     namespace: 'default'
-    command: 'create'
-    useConfigurationFile: true
+    command: 'get'
+    arguments: 'deployment'
     secretType: 'dockerRegistry'
     containerRegistryType: 'Azure Container Registry'
 
