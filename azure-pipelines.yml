@@ -10,14 +10,6 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- task: UseRubyVersion@0
-  inputs:
-    versionSpec: '>= 2.5'
-
-- script: |
-    gem install bundler
-    bundle install --retry=3 --jobs=4
-
 - task: Kubernetes@1
   name: kube
   inputs:
@@ -29,7 +21,15 @@ steps:
     configuration: 'manifest/deployment.yaml'
     secretType: 'dockerRegistry'
     containerRegistryType: 'Azure Container Registry'
-  displayName: 'bundle install'
+
+- task: UseRubyVersion@0
+  inputs:
+    versionSpec: '>= 2.5'
+
+- script: |
+    gem install bundler
+    bundle install --retry=3 --jobs=4
+    displayName: 'bundle install'
 
 - script: bundle exec rake
   displayName: 'bundle exec rake'
